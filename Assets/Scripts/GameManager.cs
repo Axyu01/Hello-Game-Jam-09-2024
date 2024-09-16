@@ -5,6 +5,6 @@ using UnityEngine;
 public class GameManager : MonoSingleton<GameManager>
 {
     [SerializeField]
-    PlayerController _player;
-    PlayerController Player { get { return _player; } }
+    Player _player;
+    Player Player { get { return _player; } }
 }

@@ -13,6 +13,7 @@ public class WorldSwitcher : MonoBehaviour
 
     [SerializeField]
     bool _isChillWorldActive = false;
+    public bool IS_ChillWorldActive { get { return _isChillWorldActive; } }
     bool _isChillWorldActiveLastValue = false;
 
     // Start is called before the first frame update

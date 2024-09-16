@@ -3,11 +3,10 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
 
-public class Enemy : MonoBehaviour
+public class Enemy : MovingEntityBase
 {
     [SerializeField] Transform _target;
-    [SerializeField] Rigidbody2D _rb;
-    [SerializeField] float _force = 5f;
+    [SerializeField] float _movingForce = 5f;
     [SerializeField] NavMeshAgent _agent;
     void Start()
     {
@@ -30,7 +29,7 @@ public class Enemy : MonoBehaviour
         _agent.SetDestination(_target.position);
         if (_agent.path.corners.Length > 0)
         {
-            _rb.AddForce(((Vector2)(_agent.path.corners[0] - transform.position)).normalized * _force,ForceMode2D.Force);
+            Rigidbody.AddForce(((Vector2)(_agent.path.corners[0] - transform.position)).normalized * _movingForce,ForceMode2D.Force);
         }
         _agent.nextPosition = transform.position;
     }
