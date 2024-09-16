@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class EntityBase : MonoBehaviour
 {
+    [SerializeField]
+    protected ActionBase _action;
     protected float _health;
     [SerializeField]
     protected float _maxHealth;

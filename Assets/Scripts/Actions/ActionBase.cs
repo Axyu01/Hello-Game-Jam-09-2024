@@ -4,5 +4,5 @@ using UnityEngine;
 
 public abstract class ActionBase : MonoBehaviour
 {
-    public abstract void TakeAction();
+    public abstract void TakeAction(Vector2 actionCursorPoint,EntityBase _targetedEntity = null);
 }

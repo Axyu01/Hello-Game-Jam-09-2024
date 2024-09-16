@@ -16,26 +16,22 @@ public class SmoothCamera : MonoBehaviour
     [Header("parameters")]
     [SerializeField]
     float _speed = 3f;
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
 
     // Update is called once per frame
-    void Update()
+    void LateUpdate()
     {
         if(_worldSwitcher.IS_ChillWorldActive)
         {
-            Follow(_chillWorldTarget.transform.position, Time.deltaTime);
+            Follow(_chillWorldTarget.transform, Time.deltaTime);
         }
         else
         {
-            Follow(_fightWorldTarget.transform.position, Time.deltaTime);
+            Follow(_fightWorldTarget.transform, Time.deltaTime);
         }
     }
-    void Follow(Vector2 point,float change)
+    void Follow(Transform followedTransform,float change)
     {
-        _camera.transform.position = Vector3.Lerp(_camera.transform.position,(Vector3)point + Vector3.forward * _camera.transform.position.z,change * _speed);
+        _camera.transform.parent = followedTransform;
+        _camera.transform.localPosition = Vector3.Lerp(_camera.transform.localPosition,Vector3.forward *_camera.transform.localPosition.z,change * _speed);
     }
 }
