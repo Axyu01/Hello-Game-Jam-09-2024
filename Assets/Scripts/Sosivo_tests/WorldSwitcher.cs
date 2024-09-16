@@ -5,7 +5,7 @@ using UnityEngine;
 public class WorldSwitcher : MonoBehaviour
 {
     [SerializeField]
-    KeyCode _switchKey = KeyCode.P;
+    KeyCode _switchKey = KeyCode.Space;
     [SerializeField]
     GameObject _chillWorld;
     [SerializeField]
