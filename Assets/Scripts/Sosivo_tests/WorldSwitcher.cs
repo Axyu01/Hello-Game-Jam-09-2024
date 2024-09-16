@@ -5,7 +5,7 @@ using UnityEngine;
 public class WorldSwitcher : MonoBehaviour
 {
     [SerializeField]
-    KeyCode switchKey = KeyCode.P;
+    KeyCode _switchKey = KeyCode.P;
     [SerializeField]
     GameObject _chillWorld;
     [SerializeField]
@@ -29,7 +29,7 @@ public class WorldSwitcher : MonoBehaviour
             UpdateWorlds();
             _isChillWorldActiveLastValue = _isChillWorldActive;
         }
-        if(Input.GetKeyDown(switchKey))
+        if(Input.GetKeyDown(_switchKey))
         {
             _isChillWorldActive = !_isChillWorldActive;
             UpdateWorlds();

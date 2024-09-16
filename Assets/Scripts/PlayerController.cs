@@ -4,19 +4,19 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
-    public float movementSpeed;
-    float speedX, speedY;
-    Rigidbody2D rb;
+    public float MovementSpeed = 10f;
+    float _speedX, _speedY;
+    Rigidbody2D _rb;
     void Start()
     {
-        rb= GetComponent<Rigidbody2D>();
+        _rb= GetComponent<Rigidbody2D>();
     }
 
     
     void Update()
     {
-        speedX = Input.GetAxisRaw("Horizontal") * movementSpeed;
-        speedY = Input.GetAxisRaw("Vertical") * movementSpeed;
-        rb.velocity = new Vector2 (speedX, speedY);
+        _speedX = Input.GetAxisRaw("Horizontal") * MovementSpeed;
+        _speedY = Input.GetAxisRaw("Vertical") * MovementSpeed;
+        _rb.velocity = new Vector2 (_speedX, _speedY);
     }
 }

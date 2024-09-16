@@ -5,26 +5,33 @@ using UnityEngine.AI;
 
 public class Enemy : MonoBehaviour
 {
-    [SerializeField] Transform target;
-    [SerializeField] Rigidbody2D rb;
-    [SerializeField] float force = 5f;
-    NavMeshAgent agent;
+    [SerializeField] Transform _target;
+    [SerializeField] Rigidbody2D _rb;
+    [SerializeField] float _force = 5f;
+    [SerializeField] NavMeshAgent _agent;
     void Start()
     {
-        agent = GetComponent<NavMeshAgent>();   
-        agent.updateRotation = false;
-        agent.updateUpAxis = false;
-        agent.updatePosition = false;
+        if (_agent == null)
+        {
+            _agent = GetComponent<NavMeshAgent>();
+        }
+        if (_agent == null)
+        {
+            Debug.LogError("Missing NavMeshAgent Component!");
+        }
+        _agent.updateRotation = false;
+        _agent.updateUpAxis = false;
+        _agent.updatePosition = false;
     }
 
     // Update is called once per frame
     void FixedUpdate()
     {
-        agent.SetDestination(target.position);
-        if (agent.path.corners.Length > 0)
+        _agent.SetDestination(_target.position);
+        if (_agent.path.corners.Length > 0)
         {
-            rb.AddForce(((Vector2)(agent.path.corners[0] - transform.position)).normalized * force,ForceMode2D.Force);
+            _rb.AddForce(((Vector2)(_agent.path.corners[0] - transform.position)).normalized * _force,ForceMode2D.Force);
         }
-        agent.nextPosition = transform.position;
+        _agent.nextPosition = transform.position;
     }
 }
