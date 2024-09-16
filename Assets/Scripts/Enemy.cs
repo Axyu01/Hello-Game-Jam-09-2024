@@ -34,4 +34,8 @@ public class Enemy : MonoBehaviour
         }
         _agent.nextPosition = transform.position;
     }
+    public virtual void UpdateBehaviour()
+    {
+
+    }
 }
