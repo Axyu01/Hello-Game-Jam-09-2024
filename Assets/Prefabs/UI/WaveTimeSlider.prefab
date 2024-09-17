@@ -309,7 +309,7 @@ GameObject:
   - component: {fileID: 5625478109804106810}
   - component: {fileID: 4199342724662904663}
   m_Layer: 5
-  m_Name: Slider
+  m_Name: WaveTimeSlider
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
