@@ -10,6 +10,8 @@ public class NPC_Shop_Buttons : MonoBehaviour
     Button _button;
     [SerializeField]
     Image _image;
+    [SerializeField]
+    Text _description;
     
 
     public void AfterBuy()
@@ -21,6 +23,7 @@ public class NPC_Shop_Buttons : MonoBehaviour
         Color c = _image.color;
         c.a = 0.2f;
         _image.color = c;
+        _description.text = "SOLD";
 
     }
 
