@@ -5,6 +5,7 @@ using UnityEngine.Events;
 
 public class WaveManager : MonoBehaviour
 {
+    const float SMALL_NUMBER = 0.01f;
     int _currentWave = 0;
     public UnityEvent WaveEndEvent = new UnityEvent();
     public UnityEvent WaveStartEvent = new UnityEvent();
@@ -43,8 +44,8 @@ public class WaveManager : MonoBehaviour
 
     void Update()
     {
-        UpdateWaveManagementLogic();
         UpdateWaveCycleLogic();
+        UpdateWaveManagementLogic();
     }
     void UpdateWaveManagementLogic()
     {
@@ -60,41 +61,76 @@ public class WaveManager : MonoBehaviour
         }
     }
     void UpdateWaveCycleLogic()
-    { 
-        if(_nextEnemy == null)
-        {
-            SpawnNextEnemies();
-        }
+    {
+        SpawnNextEnemies();
     }
     void SpawnNextEnemies()
     {
         bool continueSpawning = true;
         while (continueSpawning)
         {
-            float availableHardnessPoints = _currentWaveHardness * (_timePerWave - _timeLeft)/_timePerWave - _currentWaveUsedHardness;
+            float availableHardnessPoints = _currentWaveHardness * (_timePerWave - _timeLeft) / _timePerWave - _currentWaveUsedHardness + SMALL_NUMBER;
 
-            List<EnemyWithWaveParameters> availabeEnemiesToSpawn = new List<EnemyWithWaveParameters>();
+            if (_nextEnemy != null && availableHardnessPoints > ((EnemyWithWaveParameters)_nextEnemy).HardnessScore)
+            {
+                EnemyWithWaveParameters enemy = (EnemyWithWaveParameters)_nextEnemy;
+                SpawnEnemyOnRandomSpawn(enemy);
+            }
+
+            List <EnemyWithWaveParameters> availabeEnemiesToSpawn = new List<EnemyWithWaveParameters>();
             foreach (EnemyWithWaveParameters enemy in _enemiesWithParameters)
             {
-                if (enemy.hardnessScore < availableHardnessPoints && enemy.waveAppearance <= _currentWave)
+                if (enemy.WaveAppearance <= _currentWave)
                 {
                     availabeEnemiesToSpawn.Add(enemy);
+                }
+            }
+
+            int probabilityScoreSum = 0;
+            foreach (EnemyWithWaveParameters enemy in availabeEnemiesToSpawn)
+            {
+                probabilityScoreSum += enemy.ProbabilityScore;
+            }
+
+            //Used to choose random Enemy by probability score
+            int randomScoreChoice = Random.Range(0, probabilityScoreSum);
+
+            int probabilityScoreCelling = 0;
+            foreach (EnemyWithWaveParameters enemy in availabeEnemiesToSpawn)
+            {
+                probabilityScoreCelling += enemy.ProbabilityScore;
+                if(probabilityScoreCelling > randomScoreChoice)
+                {
+                    _nextEnemy = enemy;
+                    break;
                 }
             }
             if (availabeEnemiesToSpawn.Count == 0)
             {
                 continueSpawning = false;
+                continue;
+            }
+
+            if (_nextEnemy != null && availableHardnessPoints > ((EnemyWithWaveParameters)_nextEnemy).HardnessScore)
+            {
+                EnemyWithWaveParameters randomEnemy = ((EnemyWithWaveParameters)_nextEnemy);
+                SpawnEnemyOnRandomSpawn(randomEnemy);
             }
             else
             {
-
-                EnemyWithWaveParameters randomEnemy = availabeEnemiesToSpawn[Random.Range(0, availabeEnemiesToSpawn.Count)];
-                Transform randomSpawn = _spawns[Random.Range(0, _spawns.Count)];
-                Instantiate(randomEnemy.EnemyPrefab, randomSpawn.position,Quaternion.identity, transform);
-                _currentWaveUsedHardness += randomEnemy.hardnessScore;
+                continueSpawning = false;
+                continue;
             }
         }      
     }
+    void SpawnEnemyOnRandomSpawn(EnemyWithWaveParameters enemy)
+    {
+        Transform randomSpawn = _spawns[Random.Range(0, _spawns.Count)];
+        Instantiate(enemy.EnemyPrefab, randomSpawn.position, Quaternion.identity, transform);
+        _currentWaveUsedHardness += enemy.HardnessScore;
+        _nextEnemy = null;
+    }
+
     public void StartNextWave()
     {
         _waveEnded = false;
@@ -103,7 +139,7 @@ public class WaveManager : MonoBehaviour
         GameManager.Instance.Announcer.Announce($"Wave {_currentWave} started!");
         _currentWaveUsedHardness = 0f;
         _currentWaveHardness = _startHardness * Mathf.Pow(_hardnessMutliplayer,_currentWave-1) + _hardnessAddition * (_currentWave - 1);
-        Debug.Log(_currentWaveHardness);
+        Debug.Log("Wave Hardness:" + _currentWaveHardness);
         _timeLeft = _timePerWave;
         WaveStartEvent?.Invoke();
     }
@@ -118,6 +154,7 @@ public class WaveManager : MonoBehaviour
 public struct EnemyWithWaveParameters
 {
     public GameObject EnemyPrefab;
-    public int hardnessScore;
-    public int waveAppearance;
+    public int HardnessScore;
+    public int WaveAppearance;
+    public int ProbabilityScore;
 }
