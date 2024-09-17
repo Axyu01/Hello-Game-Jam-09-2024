@@ -19,4 +19,8 @@ public class EntityBase : MonoBehaviour
         if(_health > _maxHealth)
             _health = _maxHealth;
     }
+    protected void Start()
+    {
+        _health = _maxHealth;
+    }
 }

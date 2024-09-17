@@ -3,13 +3,16 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
 
-public class Enemy : MovingEntityBase
+public class EnemyBase : MovingEntityBase
 {
-    [SerializeField] Transform _target;
+    Transform _target;
     [SerializeField] float _movingForce = 5f;
     [SerializeField] NavMeshAgent _agent;
-    void Start()
+    new void Start()
     {
+        base.Start();
+        _target = GameManager.Instance.FightWorldPlayer.transform;
+        _health = _maxHealth;
         if (_agent == null)
         {
             _agent = GetComponent<NavMeshAgent>();
@@ -22,7 +25,6 @@ public class Enemy : MovingEntityBase
         _agent.updateUpAxis = false;
         _agent.updatePosition = false;
     }
-
     // Update is called once per frame
     void FixedUpdate()
     {
