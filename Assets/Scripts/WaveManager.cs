@@ -22,7 +22,7 @@ public class WaveManager : MonoBehaviour
     float _currentWaveHardness;
     float _currentWaveUsedHardness;
     float _timeLeft = 0;
-    public float TimeLeft { get { return _timePerWave; } }
+    public float TimeLeft { get { return _timeLeft; } }
     bool _waveEnded = false;
 
     EnemyWithWaveParameters? _nextEnemy = null;
