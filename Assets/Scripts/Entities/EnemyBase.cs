@@ -5,12 +5,13 @@ using UnityEngine.AI;
 
 public class EnemyBase : MovingEntityBase
 {
-    [SerializeField] Transform _target;
+    Transform _target;
     [SerializeField] float _movingForce = 5f;
     [SerializeField] NavMeshAgent _agent;
     new void Start()
     {
         base.Start();
+        _target = GameManager.Instance.FightWorldPlayer.transform;
         _health = _maxHealth;
         if (_agent == null)
         {
@@ -24,7 +25,6 @@ public class EnemyBase : MovingEntityBase
         _agent.updateUpAxis = false;
         _agent.updatePosition = false;
     }
-
     // Update is called once per frame
     void FixedUpdate()
     {
