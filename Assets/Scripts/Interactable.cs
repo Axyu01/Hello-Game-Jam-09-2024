@@ -5,34 +5,34 @@ using UnityEngine.Events;
 
 public class Interactable : MonoBehaviour
 {
-    public bool IsInRange;
-    [SerializeField]
-    KeyCode _interactKey;
-    public UnityEvent InteractAction;
+    public bool isInRange;
+    public KeyCode interactKey;
+    public UnityEvent interactAction;
+
 
     void Update()
     {
-        if (IsInRange) 
-        {
-            if (Input.GetKeyDown(_interactKey))
+        if (isInRange) {
+            if (Input.GetKeyDown(interactKey))
             {
-                InteractAction.Invoke();
+                interactAction.Invoke();
             }
         }
+
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.gameObject.CompareTag("Player"))
         {
-            IsInRange = true;
+            isInRange = true;
             Debug.Log("in range");
         }
     }
 
     private void OnTriggerExit2D(Collider2D collision)
     {
-        IsInRange = false;
+        isInRange = false;
         Debug.Log("out of range");
     }
 }
