@@ -11,6 +11,7 @@ public class WaveManager : MonoBehaviour
     [Header("Hardness Parameters")]
     [SerializeField]
     float _timePerWave;
+    public float TimePerWave { get { return _timePerWave; }}
     [SerializeField]
     float _startHardness;
     [SerializeField]
@@ -21,6 +22,7 @@ public class WaveManager : MonoBehaviour
     float _currentWaveHardness;
     float _currentWaveUsedHardness;
     float _timeLeft = 0;
+    public float TimeLeft { get { return _timePerWave; } }
     bool _waveEnded = false;
 
     EnemyWithWaveParameters? _nextEnemy = null;
