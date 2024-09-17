@@ -3,13 +3,15 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
 
-public class Enemy : MovingEntityBase
+public class EnemyBase : MovingEntityBase
 {
     [SerializeField] Transform _target;
     [SerializeField] float _movingForce = 5f;
     [SerializeField] NavMeshAgent _agent;
-    void Start()
+    new void Start()
     {
+        base.Start();
+        _health = _maxHealth;
         if (_agent == null)
         {
             _agent = GetComponent<NavMeshAgent>();
