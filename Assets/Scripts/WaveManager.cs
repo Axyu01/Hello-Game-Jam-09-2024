@@ -95,16 +95,20 @@ public class WaveManager : MonoBehaviour
     }
     public void StartNextWave()
     {
-        Debug.LogWarning($"Wave {_currentWave} started!");
+        _waveEnded = false;
         _currentWave++;
+        Debug.LogWarning($"Wave {_currentWave} started!");
+        GameManager.Instance.Announcer.Announce($"Wave {_currentWave} started!");
         _currentWaveUsedHardness = 0f;
         _currentWaveHardness = _startHardness * Mathf.Pow(_hardnessMutliplayer,_currentWave-1) + _hardnessAddition * (_currentWave - 1);
+        Debug.Log(_currentWaveHardness);
         _timeLeft = _timePerWave;
         WaveStartEvent?.Invoke();
     }
     void EndWave()
     {
         Debug.LogWarning($"Wave {_currentWave} ended!");
+        GameManager.Instance.Announcer.Announce($"Wave {_currentWave} ended!");
         WaveEndEvent?.Invoke();
     }
 }
