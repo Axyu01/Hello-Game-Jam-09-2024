@@ -373,7 +373,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _fightWorldPlayer: {fileID: 2071762938}
-  _announcer: {fileID: 0}
+  _announcer: {fileID: 2001952430}
 --- !u!4 &125827402
 Transform:
   m_ObjectHideFlags: 0
@@ -3127,6 +3127,17 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &2001952430 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4171004458143805878, guid: 9d4e9ad9c3affd242a1f227b06f131c9, type: 3}
+  m_PrefabInstance: {fileID: 7551040523893321479}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f9c43f7dc87541e47b2c622eac7892ad, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &2071762936 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 5431717856696605875, guid: 7d4c67b9a1f564144b191fc03cd68eb4, type: 3}

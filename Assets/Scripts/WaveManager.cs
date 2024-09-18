@@ -70,6 +70,7 @@ public class WaveManager : MonoBehaviour
         while (continueSpawning)
         {
             float availableHardnessPoints = _currentWaveHardness * (_timePerWave - _timeLeft) / _timePerWave - _currentWaveUsedHardness + SMALL_NUMBER;
+            float potentialHardnessPointLeft = _currentWaveHardness - _currentWaveUsedHardness + SMALL_NUMBER;
 
             if (_nextEnemy != null && availableHardnessPoints > ((EnemyWithWaveParameters)_nextEnemy).HardnessScore)
             {
@@ -80,7 +81,7 @@ public class WaveManager : MonoBehaviour
             List <EnemyWithWaveParameters> availabeEnemiesToSpawn = new List<EnemyWithWaveParameters>();
             foreach (EnemyWithWaveParameters enemy in _enemiesWithParameters)
             {
-                if (enemy.WaveAppearance <= _currentWave)
+                if (enemy.WaveAppearance <= _currentWave && enemy.HardnessScore <= potentialHardnessPointLeft)
                 {
                     availabeEnemiesToSpawn.Add(enemy);
                 }

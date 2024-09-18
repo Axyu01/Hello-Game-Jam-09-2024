@@ -4,6 +4,15 @@ using UnityEngine;
 
 public class EntityBase : MonoBehaviour
 {
+    protected static List<EntityBase> Entities = new List<EntityBase>();
+    protected void Awake()
+    {
+        Entities.Add(this);
+    }
+    protected void OnDestroy()
+    {
+        Entities.Remove(this);
+    }
     [SerializeField]
     protected ActionBase _action;
     protected float _health;
@@ -14,13 +23,20 @@ public class EntityBase : MonoBehaviour
     public void GetDmg(float dmg)
     {
         _health -= dmg;
-        if(_health < 0 )
-            _health = 0;
+        if (_health <= 0f)
+        {
+            DestroyThisEntity();
+            _health = 0f;
+        }
         if(_health > _maxHealth)
             _health = _maxHealth;
     }
     protected void Start()
     {
         _health = _maxHealth;
+    }
+    public void DestroyThisEntity()
+    {
+        Destroy(gameObject);
     }
 }
