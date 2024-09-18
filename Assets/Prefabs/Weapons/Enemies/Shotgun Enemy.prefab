@@ -12,6 +12,10 @@ PrefabInstance:
       propertyPath: _bulletPrefab
       value: 
       objectReference: {fileID: 5401329650013576650, guid: 24d909af27cd16a4e9405c441b41992f, type: 3}
+    - target: {fileID: 210136061524480730, guid: 40eedbb82c3ef2142809b287264a333f, type: 3}
+      propertyPath: _isAmmoInfinite
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 788153857732063942, guid: 40eedbb82c3ef2142809b287264a333f, type: 3}
       propertyPath: m_Color.b
       value: 0.16078432

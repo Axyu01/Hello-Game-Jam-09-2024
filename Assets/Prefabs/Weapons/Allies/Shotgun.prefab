@@ -212,7 +212,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5ddf8b3d5805342468ea24a1648560d5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _isAmmoInfinite: 0
+  _startAmmo: 4
   _actionCooldown: 1.5
+  _cooldownLeft: 0
   _bulletPrefab: {fileID: 2879964728619219161, guid: c2bc92af17411d544bbd440b82abd2c6, type: 3}
   _bulletRandomAngleDeviation: 8
   _numberOfBullets: 3

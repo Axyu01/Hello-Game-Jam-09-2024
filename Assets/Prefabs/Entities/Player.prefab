@@ -10,7 +10,6 @@ GameObject:
   m_Component:
   - component: {fileID: 8208912795506838851}
   - component: {fileID: 3724911987384367767}
-  - component: {fileID: 5915741792644937238}
   - component: {fileID: 8816747502563892221}
   m_Layer: 8
   m_Name: PlayerBody
@@ -48,27 +47,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9d32855279df18947b4e71133486f741, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _action: {fileID: 5915741792644937238}
+  _action: {fileID: 715791982016671254}
   _maxHealth: 0
   Rigidbody: {fileID: 3375099793770626050}
   _weapon: {fileID: 7807205863649147350}
   MovementSpeed: 5
---- !u!114 &5915741792644937238
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4572593476000594615}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5ddf8b3d5805342468ea24a1648560d5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _bulletPrefab: {fileID: 2879964728619219161, guid: c2bc92af17411d544bbd440b82abd2c6, type: 3}
-  _bulletRandomAngleDeviation: 8
-  _numberOfBullets: 3
-  _bulletsAngleSpread: 35
 --- !u!58 &8816747502563892221
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -341,6 +324,17 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 40eedbb82c3ef2142809b287264a333f, type: 3}
+--- !u!114 &715791982016671254 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 210136061524480730, guid: 40eedbb82c3ef2142809b287264a333f, type: 3}
+  m_PrefabInstance: {fileID: 794195534843198668}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5ddf8b3d5805342468ea24a1648560d5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!4 &2766440125978842590 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 3270125713597704466, guid: 40eedbb82c3ef2142809b287264a333f, type: 3}
