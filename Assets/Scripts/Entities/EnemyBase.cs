@@ -5,7 +5,7 @@ using UnityEngine.AI;
 
 public class EnemyBase : MovingEntityBase
 {
-    Transform _target;
+    protected Transform _target;
     [SerializeField] float _movingForce = 5f;
     [SerializeField] NavMeshAgent _agent;
     new void Start()
@@ -28,6 +28,7 @@ public class EnemyBase : MovingEntityBase
     // Update is called once per frame
     void FixedUpdate()
     {
+        UpdateBehaviour();
         _agent.SetDestination(_target.position);
         if (_agent.path.corners.Length > 0)
         {
@@ -35,8 +36,21 @@ public class EnemyBase : MovingEntityBase
         }
         _agent.nextPosition = transform.position;
     }
+    private void Update()
+    {
+        if(_target != null)
+        {
+            transform.rotation = Quaternion.LookRotation(Vector3.forward, _target.transform.position - transform.position);
+        }       
+    }
     public virtual void UpdateBehaviour()
     {
-
+        if ((_target.position - transform.position).magnitude < 4f && _action.OnCooldown == false)
+        {
+            if (_action != null)
+            {
+                _action.TakeAction(_target.position);
+            }
+        }
     }
 }

@@ -16,13 +16,13 @@ public class BulletShooterAction : ActionBase
     [SerializeField]
     float _bulletsAngleSpread = 10f;
 
-    public override void TakeAction(Vector2 actionCursorPoint, EntityBase _targetedEntity = null)
+    protected override void OnAction(Vector2 actionCursorPoint, EntityBase _targetedEntity = null)
     {
         Vector2 forwardDirection = actionCursorPoint-(Vector2)transform.position;
         float angleDiff = _bulletsAngleSpread / _numberOfBullets;
         for (int i = 0; i < _numberOfBullets; i++)
         {
-            Vector2 bulletDirection = Quaternion.Euler(0f, 0f, angleDiff * i - _bulletsAngleSpread * 0.5f + Random.Range(0f,_bulletRandomAngleDeviation)) * forwardDirection;
+            Vector2 bulletDirection = Quaternion.Euler(0f, 0f, angleDiff * i - _bulletsAngleSpread * 0.5f + Random.Range(-_bulletRandomAngleDeviation/2f,_bulletRandomAngleDeviation/2f)) * forwardDirection;
             ShootBullet(_bulletPrefab, bulletDirection, _targetedEntity);
         }
     }
@@ -41,16 +41,8 @@ public class BulletShooterAction : ActionBase
             }
         }
     }
-
-    // Start is called before the first frame update
-    void Start()
+    protected void Update()
     {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
+        base.Update();
     }
 }

@@ -16,7 +16,11 @@ public class SmoothCamera : MonoBehaviour
     [Header("parameters")]
     [SerializeField]
     float _speed = 3f;
-
+    Quaternion _startRotation;
+    private void Start()
+    {
+        _startRotation = transform.rotation;
+    }
     // Update is called once per frame
     void LateUpdate()
     {
@@ -33,5 +37,6 @@ public class SmoothCamera : MonoBehaviour
     {
         _camera.transform.parent = followedTransform;
         _camera.transform.localPosition = Vector3.Lerp(_camera.transform.localPosition,Vector3.forward *_camera.transform.localPosition.z,change * _speed);
+        _camera.transform.rotation = _startRotation;
     }
 }

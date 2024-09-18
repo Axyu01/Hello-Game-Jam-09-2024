@@ -26,5 +26,4 @@ public class ClassicBullet : BulletBase
         }
         DestroyThisBullet();
     }
-
 }

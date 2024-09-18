@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class Player : MovingEntityBase
 {
+    [SerializeField]
+    GameObject _weapon;
     public float MovementSpeed = 10f;
 
     void Update()
@@ -11,11 +13,20 @@ public class Player : MovingEntityBase
         float speedX = Input.GetAxisRaw("Horizontal") * MovementSpeed;
         float speedY = Input.GetAxisRaw("Vertical") * MovementSpeed;
         Rigidbody.velocity = new Vector2 (speedX, speedY);
-        if(Input.GetKeyDown(KeyCode.Mouse0))
+
+        var mouseWorldPosition = MouseWorldPosition();
+
+        if (Input.GetKeyDown(KeyCode.Mouse0))
         {
-            _action.TakeAction(MouseWorldPosition(), null);
+            _action.TakeAction(mouseWorldPosition, null);
         }
+     
         _point = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+    }
+    private void LateUpdate()
+    {
+        var mouseWorldPosition = MouseWorldPosition();
+        transform.rotation = Quaternion.LookRotation(Vector3.forward, (Vector3)mouseWorldPosition - transform.position);
     }
     Vector2 MouseWorldPosition()
     {
@@ -26,6 +37,11 @@ public class Player : MovingEntityBase
     {
         Gizmos.color = Color.cyan;
         Gizmos.DrawWireSphere(_point, 0.3f);
-
+    }
+    public void ChangeWeapon(GameObject prefab)
+    {
+        Destroy(_weapon);
+        _weapon = Instantiate(prefab);
+        _action = _weapon.GetComponentInChildren<ActionBase>();
     }
 }
