@@ -1,53 +1,5 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &4358337115438716548
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 6697902338061942057}
-  - component: {fileID: 7137156819864123523}
-  m_Layer: 0
-  m_Name: WorldSwitcher
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &6697902338061942057
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4358337115438716548}
-  serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -1.683836, y: 3.029981, z: 0.27955833}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 6319403907410037595}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &7137156819864123523
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4358337115438716548}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4830f80961d608645a1f42764be2fb0b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _switchKey: 32
-  _chillWorld: {fileID: 0}
-  _actionWorld: {fileID: 0}
-  _isChillWorldActive: 1
 --- !u!1 &4401930098244407956
 GameObject:
   m_ObjectHideFlags: 0
@@ -77,8 +29,7 @@ Transform:
   m_LocalPosition: {x: 0.24331504, y: -3.215869, z: -0.27955833}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children:
-  - {fileID: 6697902338061942057}
+  m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &5627645697274016596
@@ -93,5 +44,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2f0bbf057af259f4888bcd2fae726428, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Coins: 100
+  _chillWorldPlayer: {fileID: 0}
   _fightWorldPlayer: {fileID: 0}
   _announcer: {fileID: 0}

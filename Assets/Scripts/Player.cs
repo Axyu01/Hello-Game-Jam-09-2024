@@ -18,7 +18,8 @@ public class Player : MovingEntityBase
 
         if (Input.GetKeyDown(KeyCode.Mouse0))
         {
-            _action.TakeAction(mouseWorldPosition, null);
+            if(_action != null)
+               _action.TakeAction(mouseWorldPosition, null);
         }
      
         _point = Camera.main.ScreenToWorldPoint(Input.mousePosition);
@@ -40,8 +41,9 @@ public class Player : MovingEntityBase
     }
     public void ChangeWeapon(GameObject prefab)
     {
-        Destroy(_weapon);
-        _weapon = Instantiate(prefab);
+        if(_weapon != null)
+            Destroy(_weapon);
+        _weapon = Instantiate(prefab,transform.position,transform.rotation,transform);
         _action = _weapon.GetComponentInChildren<ActionBase>();
     }
 }
