@@ -45,9 +45,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0fe8c1bec0bd73e42903595ca3997edf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isInRange: 0
-  interactKey: 101
-  interactAction:
+  IsInRange: 0
+  _interactKey: 101
+  InteractAction:
     m_PersistentCalls:
       m_Calls: []
 --- !u!61 &6409899276834528100
