@@ -7,6 +7,7 @@ using UnityEngine.SceneManagement;
 
 public class EnemyBase : MovingEntityBase
 {
+    protected static List<EntityBase> Enemies = new List<EntityBase>();
     protected Transform _target;
     public Transform Target { get { return _target; } }
     [SerializeField] float _movingForce = 5f;
@@ -16,6 +17,7 @@ public class EnemyBase : MovingEntityBase
     new void Awake()
     {
         base.Awake();
+        Enemies.Add(this);
         SceneManager.activeSceneChanged += ((Scene current,Scene next) => { _dontInstantiateDropedItem = true; });
         EditorApplication.playModeStateChanged += (PlayModeStateChange stateChange) =>
         {
@@ -73,9 +75,14 @@ public class EnemyBase : MovingEntityBase
     private new void OnDestroy()
     {
         base.OnDestroy();
+        Enemies.Remove(this);
         if(_dropedItemPrefab != null && _dontInstantiateDropedItem == false)
         {
             Instantiate(_dropedItemPrefab,transform.position,Quaternion.identity,transform.parent);
         }
+    }
+    public static int EnemiesOverallCount()
+    {
+        return Enemies.Count;
     }
 }

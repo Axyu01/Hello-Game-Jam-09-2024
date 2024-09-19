@@ -40,4 +40,8 @@ public class EntityBase : MonoBehaviour
     {
         Destroy(gameObject);
     }
+    public static int EntitiesOverallCount()
+    {
+        return Entities.Count;
+    }
 }

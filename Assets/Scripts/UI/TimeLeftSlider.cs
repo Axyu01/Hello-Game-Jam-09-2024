@@ -7,24 +7,42 @@ public class TimeLeftSlider : MonoBehaviour
 {
     public Slider timeSlider;
     public WaveManager waveManager;
+    [Header("Color Change parameters")]
+    [SerializeField]
+    Image _image;
+    [SerializeField]
+    Gradient _inWaveGradient;
+    [SerializeField]
+    Gradient _inBetweenWavesGradient;
 
     private void Start()
     {
         if (waveManager != null && timeSlider != null)
         {
-            timeSlider.maxValue = waveManager.TimePerWave;
-            timeSlider.value = waveManager.TimePerWave;
+            timeSlider.value = 1f;
 
-            waveManager.WaveEndEvent.AddListener(HideSlider);
-            waveManager.WaveStartEvent.AddListener(ShowSlider);
+            //waveManager.WaveEndEvent.AddListener(HideSlider);
+            //waveManager.WaveStartEvent.AddListener(ShowSlider);
         }
     }
 
     private void Update()
     {
-        if (waveManager != null && timeSlider != null)
+        if (waveManager.WaveEnded)
         {
-            timeSlider.value = waveManager.TimeLeft;
+            timeSlider.value = 1f - waveManager.TimeToStartNextWave / waveManager.TimeBetweenWaves;
+            if (_image != null)
+            {
+                _image.color = _inBetweenWavesGradient.Evaluate(1f - waveManager.TimeToStartNextWave / waveManager.TimeBetweenWaves);
+            }
+        }
+        else
+        {
+            timeSlider.value = waveManager.TimeLeft / waveManager.TimePerWave;
+            if (_image != null)
+            {
+                _image.color = _inWaveGradient.Evaluate(1f - waveManager.TimeLeft / waveManager.TimePerWave);
+            }
         }
     }
 
