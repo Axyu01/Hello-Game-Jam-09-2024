@@ -7,6 +7,7 @@ public class UI_ActionBaseDisplay : MonoBehaviour
 {
     public Text AmmoText;
     public Slider CooldownSlider;
+    public Image CooldownCircle;
 
     public ActionBase actionBase;
 
@@ -15,6 +16,7 @@ public class UI_ActionBaseDisplay : MonoBehaviour
         if (actionBase != null && CooldownSlider != null)
         {
             CooldownSlider.maxValue = actionBase._actionCooldown;
+            CooldownCircle.fillAmount = 0f;
         }
     }
 
@@ -30,6 +32,10 @@ public class UI_ActionBaseDisplay : MonoBehaviour
             if (CooldownSlider != null)
             {
                 CooldownSlider.value = actionBase._cooldownLeft;
+            }
+            if(CooldownCircle != null)
+            {
+                CooldownCircle.fillAmount = actionBase._cooldownLeft / actionBase._actionCooldown;
             }
         }
     }
