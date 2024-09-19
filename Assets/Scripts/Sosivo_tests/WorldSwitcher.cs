@@ -12,9 +12,13 @@ public class WorldSwitcher : MonoBehaviour
     GameObject _actionWorld;
 
     [SerializeField]
+    GameObject _crosshairImage;
+
+    [SerializeField]
     bool _isChillWorldActive = false;
     public bool IS_ChillWorldActive { get { return _isChillWorldActive; } }
     bool _isChillWorldActiveLastValue = false;
+    bool _canSwitch = false;
 
     // Start is called before the first frame update
     void Start()
@@ -30,7 +34,7 @@ public class WorldSwitcher : MonoBehaviour
             UpdateWorlds();
             _isChillWorldActiveLastValue = _isChillWorldActive;
         }
-        if(Input.GetKeyDown(_switchKey))
+        if(Input.GetKeyDown(_switchKey) && _canSwitch)
         {
             _isChillWorldActive = !_isChillWorldActive;
             UpdateWorlds();
@@ -43,11 +47,31 @@ public class WorldSwitcher : MonoBehaviour
         {
             _chillWorld.SetActive(true);
             _actionWorld.SetActive(false);
+
+            Cursor.visible = true;
+            _crosshairImage.SetActive(false);
         }
         else
         {
             _chillWorld.SetActive(false);
             _actionWorld.SetActive(true);
+
+            Cursor.visible = false;
+            _crosshairImage.SetActive(true);
+        }
+    }
+    private void OnTriggerEnter2D(Collider2D other)
+    {
+        if(other.gameObject.TryGetComponent(out Player p))
+        {
+            _canSwitch = true;
+        }
+    }
+    private void OnTriggerExit2D(Collider2D other)
+    {
+        if (other.gameObject.TryGetComponent(out Player p))
+        {
+            _canSwitch = false;
         }
     }
 }

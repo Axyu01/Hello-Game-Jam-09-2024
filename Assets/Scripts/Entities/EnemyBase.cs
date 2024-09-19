@@ -45,12 +45,13 @@ public class EnemyBase : MovingEntityBase
     }
     public virtual void UpdateBehaviour()
     {
+        if (_action == null)
+        {
+            return;
+        }
         if ((_target.position - transform.position).magnitude < 4f && _action.OnCooldown == false)
         {
-            if (_action != null)
-            {
-                _action.TakeAction(_target.position);
-            }
+            _action.TakeAction(_target.position);
         }
     }
 }

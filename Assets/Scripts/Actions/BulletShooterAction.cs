@@ -4,13 +4,13 @@ using UnityEngine;
 
 public class BulletShooterAction : ActionBase
 {
-    [Header("general parameters")]
+    [Header("General parameters")]
     [SerializeField]
     GameObject _bulletPrefab;
-    [Header("single bullet parameters")]
+    [Header("Single bullet parameters")]
     [SerializeField]
     float _bulletRandomAngleDeviation = 0f;
-    [Header("multi bullet parameters")]
+    [Header("Multi bullet parameters")]
     [SerializeField]
     int _numberOfBullets = 1;
     [SerializeField]
