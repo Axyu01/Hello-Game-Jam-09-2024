@@ -8,16 +8,13 @@ public class WorldSwitcher : MonoBehaviour
     KeyCode _switchKey = KeyCode.Space;
     [SerializeField]
     GameObject _chillWorld;
+    static GameObject _chillWorldGlobal;
     [SerializeField]
     GameObject _actionWorld;
+    static GameObject _actionWorldGlobal;
 
-    [SerializeField]
-    GameObject _crosshairImage;
-
-    [SerializeField]
-    bool _isChillWorldActive = false;
-    public bool IS_ChillWorldActive { get { return _isChillWorldActive; } }
-    bool _isChillWorldActiveLastValue = false;
+    static bool _isChillWorldActive = false;
+    public static bool IsChillWorldActive { get { return _isChillWorldActive; } }
     bool _canSwitch = false;
 
     // Start is called before the first frame update
@@ -29,16 +26,10 @@ public class WorldSwitcher : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(_isChillWorldActive != _isChillWorldActiveLastValue)
-        {
-            UpdateWorlds();
-            _isChillWorldActiveLastValue = _isChillWorldActive;
-        }
         if(Input.GetKeyDown(_switchKey) && _canSwitch)
         {
             _isChillWorldActive = !_isChillWorldActive;
             UpdateWorlds();
-            _isChillWorldActiveLastValue = _isChillWorldActive;
         }
     }
     void UpdateWorlds()
@@ -47,17 +38,11 @@ public class WorldSwitcher : MonoBehaviour
         {
             _chillWorld.SetActive(true);
             _actionWorld.SetActive(false);
-
-            Cursor.visible = true;
-            _crosshairImage.SetActive(false);
         }
         else
         {
             _chillWorld.SetActive(false);
             _actionWorld.SetActive(true);
-
-            Cursor.visible = false;
-            _crosshairImage.SetActive(true);
         }
     }
     private void OnTriggerEnter2D(Collider2D other)

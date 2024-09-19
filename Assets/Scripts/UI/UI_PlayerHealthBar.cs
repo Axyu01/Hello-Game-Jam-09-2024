@@ -1,14 +1,17 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class UI_PlayerHealthBar : MonoBehaviour
 {
     public Text HealthText;
-    public Slider HealthSlider;
-    public GameManager GameManager;
-
+    //public Slider HealthSlider;
+    public void Update()
+    {
+        HealthText.text = $"HEALTH:{GameManager.Instance.FightWorldPlayer.Health}";
+    }
     /*void Start()
     {
 

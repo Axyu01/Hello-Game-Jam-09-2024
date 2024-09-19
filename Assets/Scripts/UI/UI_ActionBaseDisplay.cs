@@ -9,19 +9,18 @@ public class UI_ActionBaseDisplay : MonoBehaviour
     public Slider CooldownSlider;
     public Image CooldownCircle;
 
-    public ActionBase actionBase;
-
     private void Start()
     {
+        ActionBase actionBase = GetCurrentPlayerAction();
         if (actionBase != null && CooldownSlider != null)
         {
-            CooldownSlider.maxValue = actionBase._actionCooldown;
             CooldownCircle.fillAmount = 0f;
         }
     }
 
     private void Update()
     {
+        ActionBase actionBase = GetCurrentPlayerAction();
         if (actionBase != null)
         {
             if (AmmoText != null)
@@ -31,12 +30,25 @@ public class UI_ActionBaseDisplay : MonoBehaviour
 
             if (CooldownSlider != null)
             {
-                CooldownSlider.value = actionBase._cooldownLeft;
+                CooldownSlider.value = 1f - actionBase.CooldownLeft / actionBase.ActionCooldown;
             }
             if(CooldownCircle != null)
             {
-                CooldownCircle.fillAmount = actionBase._cooldownLeft / actionBase._actionCooldown;
+                CooldownCircle.fillAmount = actionBase.CooldownLeft / actionBase.ActionCooldown;
             }
         }
+    }
+    public ActionBase GetCurrentPlayerAction()
+    {
+        Player currentPlayer;
+        if (WorldSwitcher.IsChillWorldActive)
+        {
+            currentPlayer = GameManager.Instance.ChillWorldPlayer;
+        }
+        else
+        {
+            currentPlayer = GameManager.Instance.FightWorldPlayer;
+        }
+        return currentPlayer.Action;
     }
 }

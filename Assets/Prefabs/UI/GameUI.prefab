@@ -194,7 +194,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Coins: {fileID: 4923474065374308506}
-  gameManager: {fileID: 0}
 --- !u!1 &1746190258787000007
 GameObject:
   m_ObjectHideFlags: 0
@@ -254,7 +253,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_RaycastTarget: 1
+  m_RaycastTarget: 0
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
@@ -359,7 +358,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 856fe3dc4d9b45143ac254ee0bcb6606, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  CrosshairImage: {fileID: 6912798518491890961}
+  CrosshairImage: {fileID: 7228735724668307329}
 --- !u!1 &3705102882423513873
 GameObject:
   m_ObjectHideFlags: 0
@@ -640,7 +639,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: db73e0a54958e9744af11179d2cd8254, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  HealthText: {fileID: 0}
+  HealthText: {fileID: 1179821447366159445}
   HealthSlider: {fileID: 0}
   GameManager: {fileID: 0}
 --- !u!1 &5412825584632301601
@@ -940,7 +939,6 @@ MonoBehaviour:
   AmmoText: {fileID: 446483846270869449}
   CooldownSlider: {fileID: 6943661297452486672}
   CooldownCircle: {fileID: 2593855159150740177}
-  actionBase: {fileID: 0}
 --- !u!1 &8370197134863151595
 GameObject:
   m_ObjectHideFlags: 0
@@ -1413,6 +1411,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 8207940535738747555, guid: ff002dde61ec4c349b4f27c61a802c71, type: 3}
       insertIndex: -1
       addedObject: {fileID: 4867627583028295867}
+    - targetCorrespondingSourceObject: {fileID: 8207940535738747555, guid: ff002dde61ec4c349b4f27c61a802c71, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 4952511257562778610}
   m_SourcePrefab: {fileID: 100100000, guid: ff002dde61ec4c349b4f27c61a802c71, type: 3}
 --- !u!114 &216659087777040472 stripped
 MonoBehaviour:
@@ -1431,6 +1432,20 @@ GameObject:
   m_PrefabInstance: {fileID: 5552952376347040866}
   m_PrefabAsset: {fileID: 0}
 --- !u!114 &4867627583028295867
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4393396324057175745}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 29ffb47e2c553354798c4a6130c1df87, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  timeSlider: {fileID: 216659087777040472}
+  waveManager: {fileID: 0}
+--- !u!114 &4952511257562778610
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}

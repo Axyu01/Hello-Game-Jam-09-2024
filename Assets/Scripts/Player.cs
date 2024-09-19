@@ -8,7 +8,7 @@ public class Player : MovingEntityBase
     GameObject _weapon;
     public float MovementSpeed = 10f;
 
-    void Update()
+    void LateUpdate()
     {
         float speedX = Input.GetAxisRaw("Horizontal") * MovementSpeed;
         float speedY = Input.GetAxisRaw("Vertical") * MovementSpeed;
@@ -23,10 +23,7 @@ public class Player : MovingEntityBase
         }
      
         _point = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-    }
-    private void LateUpdate()
-    {
-        var mouseWorldPosition = MouseWorldPosition();
+
         transform.rotation = Quaternion.LookRotation(Vector3.forward, (Vector3)mouseWorldPosition - transform.position);
     }
     Vector2 MouseWorldPosition()

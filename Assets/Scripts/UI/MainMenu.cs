@@ -1,12 +1,12 @@
 using System.Collections;
 using System.Collections.Generic;
+using UnityEditor;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class MainMenu : MonoBehaviour
 {
-
     public void StartGame()
     {
         GameObject backgroundMusic = GameObject.Find("BackgroundMusic");
@@ -22,17 +22,21 @@ public class MainMenu : MonoBehaviour
 
     public void Instruction()
     {
-        SceneManager.LoadScene("Instructions");
+        
     }
 
     public void Credits()
     {
-        SceneManager.LoadScene("Credits");
+        
     }
 
     public void QuitGame()
     {
+#if UNITY_EDITOR
+        EditorApplication.isPlaying = false;
+#else
         Application.Quit();
+#endif
     }
 
     public void BackButton()

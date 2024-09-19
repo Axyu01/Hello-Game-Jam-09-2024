@@ -15,6 +15,7 @@ public class EntityBase : MonoBehaviour
     }
     [SerializeField]
     protected ActionBase _action;
+    public ActionBase Action { get { return _action; } }
     protected float _health;
     [SerializeField]
     protected float _maxHealth;

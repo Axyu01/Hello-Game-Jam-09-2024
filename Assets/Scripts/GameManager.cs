@@ -12,6 +12,12 @@ public class GameManager : MonoSingleton<GameManager>
     public Player ChillWorldPlayer { get { return _chillWorldPlayer; } }
     [SerializeField]
     Player _fightWorldPlayer;
+    [SerializeField]
+    GameObject _chillWorld;
+    public GameObject ChillWorld { get { return _chillWorld; } }
+    [SerializeField]
+    GameObject _fightWorld;
+    public GameObject FightWorld { get { return _fightWorld; } }
     public Player FightWorldPlayer { get { return _fightWorldPlayer; } }
     [SerializeField]
     Announcer _announcer;

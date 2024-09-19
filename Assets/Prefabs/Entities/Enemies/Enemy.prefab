@@ -263,6 +263,7 @@ GameObject:
   - component: {fileID: 8854405355628657587}
   - component: {fileID: 3870174726754221304}
   - component: {fileID: 6711952087637790376}
+  - component: {fileID: 5634487404254054280}
   - component: {fileID: 4802049028596768483}
   - component: {fileID: 3630708793955791739}
   m_Layer: 9
@@ -331,6 +332,24 @@ MonoBehaviour:
   Rigidbody: {fileID: 4802049028596768483}
   _movingForce: 5
   _agent: {fileID: 3870174726754221304}
+  _dropedItemPrefab: {fileID: 4487334640164050143, guid: 7167e4e09877c6c479920db356749154, type: 3}
+--- !u!114 &5634487404254054280
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9145297217049659980}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5dbd084590788a04f94d514cf577d94f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _controlledEnemy: {fileID: 6711952087637790376}
+  shootingDistance: 5
+  runAwayDistance: 4
+  runAwayPathing: 5
+  accurancy: 0.85
 --- !u!50 &4802049028596768483
 Rigidbody2D:
   serializedVersion: 4
