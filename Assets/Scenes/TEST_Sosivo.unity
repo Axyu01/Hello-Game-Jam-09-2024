@@ -619,6 +619,11 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 8854405355628657587, guid: 8ca58d96aa42a4343a8418f0b4f0a50c, type: 3}
   m_PrefabInstance: {fileID: 326031971}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &334381292 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2441604835295187255, guid: 9d4e9ad9c3affd242a1f227b06f131c9, type: 3}
+  m_PrefabInstance: {fileID: 7551040523893321479}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &343680893
 GameObject:
   m_ObjectHideFlags: 0
@@ -2793,6 +2798,10 @@ PrefabInstance:
       propertyPath: _actionWorld
       value: 
       objectReference: {fileID: 1458454792}
+    - target: {fileID: 5518523244868806354, guid: 41675e5bf9635094c8bb20b95e4ab5c2, type: 3}
+      propertyPath: _crosshairImage
+      value: 
+      objectReference: {fileID: 334381292}
     - target: {fileID: 8316538034930934648, guid: 41675e5bf9635094c8bb20b95e4ab5c2, type: 3}
       propertyPath: m_LocalPosition.x
       value: -5.11
@@ -3014,6 +3023,10 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 1335567294}
+    - target: {fileID: 2441604835295187255, guid: 9d4e9ad9c3affd242a1f227b06f131c9, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3350635415276458070, guid: 9d4e9ad9c3affd242a1f227b06f131c9, type: 3}
       propertyPath: m_AnchoredPosition.y
       value: -0.00015258789
