@@ -127,8 +127,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _rigidbody: {fileID: 2758678251024333883}
-  _velocity: 20
-  _dmg: 10
+  _velocity: 40
+  _dmg: 5
   _destroyAfter: 5
 --- !u!58 &8667313941268030258
 CircleCollider2D:
