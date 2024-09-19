@@ -18,9 +18,9 @@ public abstract class ActionBase : MonoBehaviour
     public int CurrentAmmo { get { return _currentAmmo; } }
     [Header("Cooldown parameters")]
     [SerializeField]
-    protected float _actionCooldown = 1f;
+    public float _actionCooldown = 1f;
     [SerializeField]
-    protected float _cooldownLeft = 0f;
+    public float _cooldownLeft = 0f;
     public bool OnCooldown { get { return _cooldownLeft > 0f; } }
     public void TakeAction(Vector2 actionCursorPoint, EntityBase _targetedEntity = null)
     {

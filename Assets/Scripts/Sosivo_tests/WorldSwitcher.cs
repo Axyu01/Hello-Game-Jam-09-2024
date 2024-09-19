@@ -12,6 +12,9 @@ public class WorldSwitcher : MonoBehaviour
     GameObject _actionWorld;
 
     [SerializeField]
+    GameObject _crosshairImage;
+
+    [SerializeField]
     bool _isChillWorldActive = false;
     public bool IS_ChillWorldActive { get { return _isChillWorldActive; } }
     bool _isChillWorldActiveLastValue = false;
@@ -44,11 +47,17 @@ public class WorldSwitcher : MonoBehaviour
         {
             _chillWorld.SetActive(true);
             _actionWorld.SetActive(false);
+
+            Cursor.visible = true;
+            _crosshairImage.SetActive(false);
         }
         else
         {
             _chillWorld.SetActive(false);
             _actionWorld.SetActive(true);
+
+            Cursor.visible = false;
+            _crosshairImage.SetActive(true);
         }
     }
     private void OnTriggerEnter2D(Collider2D other)

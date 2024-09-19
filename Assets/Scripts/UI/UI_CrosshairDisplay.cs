@@ -9,7 +9,6 @@ public class Crosshair : MonoBehaviour
     void Start()
     {
         _canvas = GetComponentInParent<Canvas>();
-        //Cursor.visible = false;
     }
 
     void Update()
