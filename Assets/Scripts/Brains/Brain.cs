@@ -27,7 +27,7 @@ public class Brain : MonoBehaviour
         else if (runAwayDistance < entityToPlayerDistance && entityToPlayerDistance < shootingDistance)
         {
             _controlledEnemy.MoveTo(transform.position);
-            if (Mathf.Abs(Vector3.Angle(transform.forward, -playerToEntity)) < 360f * (1 - accurancy))
+            //if (Mathf.Abs(Vector3.Angle(transform.forward, -playerToEntity)) < 360f * (1 - accurancy))
                 _controlledEnemy.Attack();
         }
         else if (entityToPlayerDistance <= runAwayDistance)
