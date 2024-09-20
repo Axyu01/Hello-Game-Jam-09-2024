@@ -196,6 +196,11 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 22de466f54b734f489b4d535d37ee355, type: 3}
+--- !u!1 &11177609 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1869490429429456943, guid: 008bfd3711612b44c94abf23e522a00a, type: 3}
+  m_PrefabInstance: {fileID: 1671209246}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &27481273 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 6694680232767565707, guid: 9d4e9ad9c3affd242a1f227b06f131c9, type: 3}
@@ -296,7 +301,7 @@ PrefabInstance:
       objectReference: {fileID: 157919730}
     - target: {fileID: 7864674315185216048, guid: 8ca58d96aa42a4343a8418f0b4f0a50c, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8854405355628657587, guid: 8ca58d96aa42a4343a8418f0b4f0a50c, type: 3}
       propertyPath: m_LocalPosition.x
@@ -2042,6 +2047,11 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 6051647254278454581, guid: 9d4e9ad9c3affd242a1f227b06f131c9, type: 3}
   m_PrefabInstance: {fileID: 7551040523893321479}
   m_PrefabAsset: {fileID: 0}
+--- !u!95 &1541642030 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 7169722864769208263, guid: 9d4e9ad9c3affd242a1f227b06f131c9, type: 3}
+  m_PrefabInstance: {fileID: 7551040523893321479}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1627061709
 GameObject:
   m_ObjectHideFlags: 0
@@ -2269,16 +2279,67 @@ PrefabInstance:
       propertyPath: m_Name
       value: NPC Shop
       objectReference: {fileID: 0}
+    - target: {fileID: 5310474781663501954, guid: 008bfd3711612b44c94abf23e522a00a, type: 3}
+      propertyPath: shopAnimator
+      value: 
+      objectReference: {fileID: 1541642030}
+    - target: {fileID: 5310474781663501954, guid: 008bfd3711612b44c94abf23e522a00a, type: 3}
+      propertyPath: InteractAction.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5310474781663501954, guid: 008bfd3711612b44c94abf23e522a00a, type: 3}
+      propertyPath: InteractAction.m_PersistentCalls.m_Calls.Array.data[1].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5310474781663501954, guid: 008bfd3711612b44c94abf23e522a00a, type: 3}
+      propertyPath: InteractAction.m_PersistentCalls.m_Calls.Array.data[1].m_Target
+      value: 
+      objectReference: {fileID: 1541642028}
+    - target: {fileID: 5310474781663501954, guid: 008bfd3711612b44c94abf23e522a00a, type: 3}
+      propertyPath: InteractAction.m_PersistentCalls.m_Calls.Array.data[1].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 5310474781663501954, guid: 008bfd3711612b44c94abf23e522a00a, type: 3}
+      propertyPath: InteractAction.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
+      value: Shop
+      objectReference: {fileID: 0}
+    - target: {fileID: 5310474781663501954, guid: 008bfd3711612b44c94abf23e522a00a, type: 3}
+      propertyPath: InteractAction.m_PersistentCalls.m_Calls.Array.data[1].m_TargetAssemblyTypeName
+      value: NpcHandler, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 5310474781663501954, guid: 008bfd3711612b44c94abf23e522a00a, type: 3}
+      propertyPath: InteractAction.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 1869490429429456943, guid: 008bfd3711612b44c94abf23e522a00a, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1671209250}
   m_SourcePrefab: {fileID: 100100000, guid: 008bfd3711612b44c94abf23e522a00a, type: 3}
 --- !u!4 &1671209247 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1773838712263755759, guid: 008bfd3711612b44c94abf23e522a00a, type: 3}
   m_PrefabInstance: {fileID: 1671209246}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1671209250
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 11177609}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 63a001a528d89b74898f38f33910a83d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ShopUI: {fileID: 1541642028}
+  Blur: {fileID: 0}
+  shopAnimator: {fileID: 1541642030}
+  isShopVisible: 0
 --- !u!1001 &1679866954
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2301,7 +2362,7 @@ PrefabInstance:
       objectReference: {fileID: 157919730}
     - target: {fileID: 7864674315185216048, guid: 8ca58d96aa42a4343a8418f0b4f0a50c, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8854405355628657587, guid: 8ca58d96aa42a4343a8418f0b4f0a50c, type: 3}
       propertyPath: m_LocalPosition.x
@@ -2482,7 +2543,7 @@ PrefabInstance:
       objectReference: {fileID: 157919730}
     - target: {fileID: 7864674315185216048, guid: 8ca58d96aa42a4343a8418f0b4f0a50c, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8854405355628657587, guid: 8ca58d96aa42a4343a8418f0b4f0a50c, type: 3}
       propertyPath: m_LocalPosition.x

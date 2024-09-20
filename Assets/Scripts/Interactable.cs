@@ -10,6 +10,9 @@ public class Interactable : MonoBehaviour
     KeyCode _interactKey;
     public UnityEvent InteractAction;
 
+    [SerializeField]
+    Animator shopAnimator;
+
     void Update()
     {
         if (IsInRange) 
@@ -17,6 +20,7 @@ public class Interactable : MonoBehaviour
             if (Input.GetKeyDown(_interactKey))
             {
                 InteractAction.Invoke();
+                ToggleShopView();
             }
         }
     }
@@ -34,5 +38,17 @@ public class Interactable : MonoBehaviour
     {
         IsInRange = false;
         Debug.Log("out of range");
+    }
+
+    public void ToggleShopView()
+    {
+        if (IsInRange)
+        {
+            shopAnimator.Play("ShopIN");
+        }
+        else
+        {
+            shopAnimator.Play("ShopOUT");
+        }
     }
 }
