@@ -20,11 +20,11 @@ public class ShopItem : Item
     {
         if (CanBuy())
         {
-            OnSuccessfulSale.Invoke();
+            OnSuccessfulSale?.Invoke();
         }
         else
         {
-            OnDismissedSale.Invoke();
+            OnDismissedSale?.Invoke();
         }
     }
 }

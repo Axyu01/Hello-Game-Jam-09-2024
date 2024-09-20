@@ -90,6 +90,7 @@ GameObject:
   - component: {fileID: 1621983063374289575}
   - component: {fileID: 4923474065374308506}
   - component: {fileID: 2518786544876432159}
+  - component: {fileID: 2784509652320947459}
   m_Layer: 5
   m_Name: Coins
   m_TagString: Untagged
@@ -107,14 +108,14 @@ RectTransform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
+  m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 6209594498141073694}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: -818, y: -480}
-  m_SizeDelta: {x: 171.86, y: 82}
+  m_SizeDelta: {x: 564.42, y: 246}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &1621983063374289575
 CanvasRenderer:
@@ -171,6 +172,21 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Coins: {fileID: 4923474065374308506}
+--- !u!114 &2784509652320947459
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 882831218416819809}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f1b7d3879372ded4a895c5a0feaf616b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  uiText: {fileID: 4923474065374308506}
+  AnimationDuration: 0.1
+  enlargedFontSize: 80
 --- !u!1 &985762959521995733
 GameObject:
   m_ObjectHideFlags: 0
@@ -689,6 +705,7 @@ GameObject:
   - component: {fileID: 8813148079781321677}
   - component: {fileID: 4575120432248240547}
   - component: {fileID: 446483846270869449}
+  - component: {fileID: 3652132663418846737}
   m_Layer: 5
   m_Name: Ammo
   m_TagString: Untagged
@@ -713,7 +730,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: -580, y: -487}
-  m_SizeDelta: {x: 131.3, y: 45.7}
+  m_SizeDelta: {x: 393.9, y: 137.1}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &4575120432248240547
 CanvasRenderer:
@@ -750,13 +767,28 @@ MonoBehaviour:
     m_BestFit: 0
     m_MinSize: 10
     m_MaxSize: 52
-    m_Alignment: 0
+    m_Alignment: 4
     m_AlignByGeometry: 0
     m_RichText: 1
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
   m_Text: ammoo
+--- !u!114 &3652132663418846737
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4584967900322683310}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f1b7d3879372ded4a895c5a0feaf616b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  uiText: {fileID: 446483846270869449}
+  AnimationDuration: 0.4
+  enlargedFontSize: 100
 --- !u!1 &4852837213469362077
 GameObject:
   m_ObjectHideFlags: 0
@@ -769,6 +801,7 @@ GameObject:
   - component: {fileID: 1165468240086610183}
   - component: {fileID: 1179821447366159445}
   - component: {fileID: 640661109860878704}
+  - component: {fileID: 4147510703925902757}
   m_Layer: 5
   m_Name: Health
   m_TagString: Untagged
@@ -793,7 +826,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 689, y: -477}
-  m_SizeDelta: {x: 320, y: 60}
+  m_SizeDelta: {x: 960, y: 180}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &1165468240086610183
 CanvasRenderer:
@@ -850,6 +883,21 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   HealthText: {fileID: 1179821447366159445}
+--- !u!114 &4147510703925902757
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4852837213469362077}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f1b7d3879372ded4a895c5a0feaf616b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  uiText: {fileID: 1179821447366159445}
+  AnimationDuration: 0.2
+  enlargedFontSize: 100
 --- !u!1 &5269053026818681725
 GameObject:
   m_ObjectHideFlags: 0
