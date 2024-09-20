@@ -20,7 +20,7 @@ public class ClassicBullet : BulletBase
     }
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if(collision.gameObject.TryGetComponent(out EntityBase entity))
+        if(collision.collider.gameObject.TryGetComponent(out EntityBase entity))
         {
             entity.GetDmg(_dmg);
         }

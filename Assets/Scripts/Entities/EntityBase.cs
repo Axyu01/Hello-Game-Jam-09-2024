@@ -36,7 +36,7 @@ public class EntityBase : MonoBehaviour
     {
         _health = _maxHealth;
     }
-    public void DestroyThisEntity()
+    public virtual void DestroyThisEntity()
     {
         Destroy(gameObject);
     }

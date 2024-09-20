@@ -7,29 +7,25 @@ using UnityEngine.SceneManagement;
 
 public class EnemyBase : MovingEntityBase
 {
-    protected static List<EntityBase> Enemies = new List<EntityBase>();
+    protected static List<EnemyBase> Enemies = new List<EnemyBase>();
     protected Transform _target;
     public Transform Target { get { return _target; } }
     [SerializeField] float _movingForce = 5f;
     [SerializeField] NavMeshAgent _agent;
     [SerializeField] GameObject _dropedItemPrefab;
     bool _dontInstantiateDropedItem = false;
+    [SerializeField]
+    float _peerMinimalDistance = 2f;
+    List<EnemyBase> _nearbyPeers = new List<EnemyBase>();
     new void Awake()
     {
         base.Awake();
         Enemies.Add(this);
-        SceneManager.activeSceneChanged += ((Scene current,Scene next) => { _dontInstantiateDropedItem = true; });
-        EditorApplication.playModeStateChanged += (PlayModeStateChange stateChange) =>
-        {
-            if(stateChange == PlayModeStateChange.ExitingPlayMode)
-            {
-                _dontInstantiateDropedItem = true;
-            }
-        };
     }
     new void Start()
     {
         base.Start();
+        StartCoroutine(FindNearbyPeers());
         _target = GameManager.Instance.FightWorldPlayer.transform;
         _health = _maxHealth;
         if (_agent == null)
@@ -47,9 +43,10 @@ public class EnemyBase : MovingEntityBase
     // Update is called once per frame
     void FixedUpdate()
     {
+        Vector2 socialDistancing = CalculateSocialDistancing();
         if (_agent.path.corners.Length > 0)
         {
-            Rigidbody.AddForce(((Vector2)(_agent.path.corners[0] - transform.position)).normalized * _movingForce,ForceMode2D.Force);
+            Rigidbody.AddForce((((Vector2)(_agent.path.corners[0] - transform.position)).normalized +socialDistancing.normalized).normalized * _movingForce,ForceMode2D.Force);
         }
         _agent.nextPosition = transform.position;
     }
@@ -72,17 +69,66 @@ public class EnemyBase : MovingEntityBase
     {
         _agent.SetDestination(position);
     }
+    public override void DestroyThisEntity()
+    {
+        if (_dropedItemPrefab != null)
+        {
+            Instantiate(_dropedItemPrefab, transform.position, Quaternion.identity, transform.parent);
+        }
+        base.DestroyThisEntity();
+    }
     private new void OnDestroy()
     {
         base.OnDestroy();
         Enemies.Remove(this);
-        if(_dropedItemPrefab != null && _dontInstantiateDropedItem == false)
-        {
-            Instantiate(_dropedItemPrefab,transform.position,Quaternion.identity,transform.parent);
-        }
     }
     public static int EnemiesOverallCount()
     {
         return Enemies.Count;
+    }
+    IEnumerator FindNearbyPeers()
+    {
+        while (true)
+        {
+            RaycastHit2D[] hits = new RaycastHit2D[4];
+            hits = Physics2D.CircleCastAll((Vector2)transform.position, _peerMinimalDistance, (Vector2)transform.position, 0f, 1 << gameObject.layer);
+            _nearbyPeers = new List<EnemyBase>();
+            foreach (RaycastHit2D hit in hits)
+            {
+                if (hit.collider.TryGetComponent(out EnemyBase peer) && peer != this)
+                {
+                    _nearbyPeers.Add(peer);
+                }
+            }
+            /*
+            List<EnemyBase> peers = new List<EnemyBase>();
+            foreach (var peer in Enemies)
+            {
+                if (peer != this)
+                    peers.Add(peer);
+            }
+            */
+
+            yield return new WaitForSeconds(5f);
+        }
+    }
+    public Vector2 CalculateSocialDistancing()
+    {
+        return Vector2.zero;
+        Vector2 socialDistancing = Vector2.zero;
+        foreach (var peer in _nearbyPeers)
+        {
+            Vector2 addedDistancing = transform.position - peer.transform.position;
+            if (addedDistancing.magnitude > _peerMinimalDistance)
+            {
+                addedDistancing = Vector2.zero;
+            }
+            else
+            {
+                addedDistancing = (_peerMinimalDistance - addedDistancing.magnitude) * addedDistancing.normalized;
+            }
+            socialDistancing += addedDistancing;
+        }
+        return socialDistancing.normalized;
     }
 }

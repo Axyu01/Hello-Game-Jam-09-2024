@@ -1,9 +1,13 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.Events;
+using UnityEngine.SceneManagement;
 
 public class GameManager : MonoSingleton<GameManager>
 {
+    public UnityEvent OnGameEnd = new UnityEvent();
     [SerializeField]
     public int Coins = 100;
 
@@ -22,4 +26,26 @@ public class GameManager : MonoSingleton<GameManager>
     [SerializeField]
     Announcer _announcer;
     public Announcer Announcer { get { return _announcer; } }
+    public void LoadScene(string sceneName)
+    {
+        SceneManager.LoadScene(sceneName);
+    }
+    public void EndGame()
+    {
+        OnGameEnd?.Invoke();
+    }
+    protected override void Awake()
+    {
+        if (_instance == null)
+        {
+            _instance = this;
+            DontDestroyOnLoad(this.gameObject);
+        }
+        else if (_instance != this)
+        {
+            //Destroy(gameObject);
+            Destroy(_instance.gameObject);
+            _instance = this;
+        }
+    }
 }
