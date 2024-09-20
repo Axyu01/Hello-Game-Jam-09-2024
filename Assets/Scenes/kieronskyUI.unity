@@ -1296,11 +1296,6 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 22de466f54b734f489b4d535d37ee355, type: 3}
---- !u!1 &825015869 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 7939706664178987941, guid: a090b75ba6a3a45419099255df67ae84, type: 3}
-  m_PrefabInstance: {fileID: 1817208493}
-  m_PrefabAsset: {fileID: 0}
 --- !u!4 &939874783 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 180908174038321988, guid: 22de466f54b734f489b4d535d37ee355, type: 3}
@@ -1653,10 +1648,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _camera: {fileID: 1393350414}
-  _worldSwitcher: {fileID: 2071627468}
-  _chillWorldTarget: {fileID: 825015869}
-  _fightWorldTarget: {fileID: 2071762936}
   _speed: 4
+  _cursorFollowPercentage: 0.3
 --- !u!1 &1393350412
 GameObject:
   m_ObjectHideFlags: 0
@@ -2864,22 +2857,6 @@ PrefabInstance:
 Transform:
   m_CorrespondingSourceObject: {fileID: 8316538034930934648, guid: 41675e5bf9635094c8bb20b95e4ab5c2, type: 3}
   m_PrefabInstance: {fileID: 2071627466}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &2071627468 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 5518523244868806354, guid: 41675e5bf9635094c8bb20b95e4ab5c2, type: 3}
-  m_PrefabInstance: {fileID: 2071627466}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4830f80961d608645a1f42764be2fb0b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!1 &2071762936 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 5431717856696605875, guid: 7d4c67b9a1f564144b191fc03cd68eb4, type: 3}
-  m_PrefabInstance: {fileID: 157919729}
   m_PrefabAsset: {fileID: 0}
 --- !u!4 &2110447291 stripped
 Transform:
