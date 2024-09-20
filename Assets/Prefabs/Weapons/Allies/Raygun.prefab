@@ -74,7 +74,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 3
   m_Sprite: {fileID: -9095717837082945937, guid: 207ee8102dd4143d288186ef0be518ee, type: 3}
-  m_Color: {r: 0.5849056, g: 0.19588822, b: 0.26661858, a: 1}
+  m_Color: {r: 0.8113208, g: 0.8113208, b: 0.8113208, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -158,7 +158,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 4
   m_Sprite: {fileID: -9095717837082945937, guid: 207ee8102dd4143d288186ef0be518ee, type: 3}
-  m_Color: {r: 0.41568628, g: 0.19617799, b: 0.1764706, a: 1}
+  m_Color: {r: 0.9811321, g: 0.9765041, b: 0.9765041, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -217,10 +217,10 @@ MonoBehaviour:
   _currentAmmo: 0
   _actionCooldown: 1.5
   _cooldownLeft: 0
-  _bulletPrefab: {fileID: 2879964728619219161, guid: c2bc92af17411d544bbd440b82abd2c6, type: 3}
+  _bulletPrefab: {fileID: 2879964728619219161, guid: c79180b4fa39a5d43997c1ec8d4d65c1, type: 3}
   _bulletRandomAngleDeviation: 8
-  _numberOfBullets: 1
-  _bulletsAngleSpread: 0
+  _numberOfBullets: 3
+  _bulletsAngleSpread: 35
 --- !u!1 &6672023061445637217
 GameObject:
   m_ObjectHideFlags: 0
@@ -315,7 +315,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3270125713597704466}
   m_Layer: 0
-  m_Name: Pistol
+  m_Name: Raygun
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
