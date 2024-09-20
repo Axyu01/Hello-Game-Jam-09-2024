@@ -347,7 +347,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _controlledEnemy: {fileID: 6711952087637790376}
-  shootingDistance: 0.5
+  shootingDistance: 1
   runAwayDistance: 0
   runAwayPathing: 5
   accurancy: 0.85
@@ -461,6 +461,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3277006352330812018, guid: d1be76fd2e6fc224c9617e3c0f741076, type: 3}
+      propertyPath: _bulletPrefab
+      value: 
+      objectReference: {fileID: 2879964728619219161, guid: 1f052797b6c44ba4a82624d0f7032389, type: 3}
     - target: {fileID: 5245997265778785714, guid: d1be76fd2e6fc224c9617e3c0f741076, type: 3}
       propertyPath: m_Name
       value: Larvae Claws

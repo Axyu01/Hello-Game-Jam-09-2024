@@ -15,7 +15,7 @@ public class Laser : BulletBase
     public override void Shoot(Vector2 direction, GameObject target = null)
     {
         RaycastHit2D[] hitArray = null;
-        hitArray= Physics2D.RaycastAll(transform.position, direction, _interactionMask.value);
+        hitArray= Physics2D.RaycastAll(transform.position, direction, _range, _interactionMask.value);
         Debug.DrawRay(transform.position, direction, Color.red, 0.2f);
         foreach(RaycastHit2D hit in hitArray)
         {

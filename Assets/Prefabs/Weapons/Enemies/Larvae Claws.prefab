@@ -16,6 +16,18 @@ PrefabInstance:
       propertyPath: _isAmmoInfinite
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 210136061524480730, guid: 40eedbb82c3ef2142809b287264a333f, type: 3}
+      propertyPath: _numberOfBullets
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 210136061524480730, guid: 40eedbb82c3ef2142809b287264a333f, type: 3}
+      propertyPath: _bulletsAngleSpread
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 210136061524480730, guid: 40eedbb82c3ef2142809b287264a333f, type: 3}
+      propertyPath: _bulletRandomAngleDeviation
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 788153857732063942, guid: 40eedbb82c3ef2142809b287264a333f, type: 3}
       propertyPath: m_Color.b
       value: 0.16078432
@@ -82,7 +94,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7448189622277948698, guid: 40eedbb82c3ef2142809b287264a333f, type: 3}
       propertyPath: m_Name
-      value: Shotgun Enemy 1
+      value: Larvae Claws
       objectReference: {fileID: 0}
     - target: {fileID: 7932045596729818716, guid: 40eedbb82c3ef2142809b287264a333f, type: 3}
       propertyPath: m_Color.b
@@ -207,6 +219,7 @@ PrefabInstance:
     m_RemovedGameObjects:
     - {fileID: 3455256555763878658, guid: 40eedbb82c3ef2142809b287264a333f, type: 3}
     - {fileID: 6672023061445637217, guid: 40eedbb82c3ef2142809b287264a333f, type: 3}
+    - {fileID: 6502346525659900813, guid: 40eedbb82c3ef2142809b287264a333f, type: 3}
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 40eedbb82c3ef2142809b287264a333f, type: 3}

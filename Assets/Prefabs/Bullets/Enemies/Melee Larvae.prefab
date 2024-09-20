@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7077001337691302552}
   - component: {fileID: -7781498575729644122}
-  m_Layer: 8
+  m_Layer: 9
   m_Name: Melee Larvae
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -49,4 +49,4 @@ MonoBehaviour:
   _range: 1
   _interactionMask:
     serializedVersion: 2
-    m_Bits: 513
+    m_Bits: 257
