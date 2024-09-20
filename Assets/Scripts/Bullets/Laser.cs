@@ -14,14 +14,20 @@ public class Laser : BulletBase
     LayerMask _interactionMask;
     public override void Shoot(Vector2 direction, GameObject target = null)
     {
-        Physics2D.RaycastAll(transform.position, direction, _interactionMask.value);
-        DestroyThisBullet();
-    }
-    private void OnCollisionEnter2D(Collision2D collision)
-    {
-        if (collision.gameObject.TryGetComponent(out EntityBase entity))
+        RaycastHit2D[] hitArray = null;
+        hitArray= Physics2D.RaycastAll(transform.position, direction, _interactionMask.value);
+        Debug.DrawRay(transform.position, direction, Color.red, 0.2f);
+        foreach(RaycastHit2D hit in hitArray)
         {
-            entity.GetDmg(_dmg);
+            if (hit.collider.gameObject.TryGetComponent(out EntityBase entity))
+            {
+                entity.GetDmg(_dmg);
+            }
+            else
+            {
+                break;
+            }
         }
+        DestroyThisBullet();
     }
 }

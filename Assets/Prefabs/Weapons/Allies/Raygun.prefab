@@ -212,15 +212,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5ddf8b3d5805342468ea24a1648560d5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  OnActionEvent:
+    m_PersistentCalls:
+      m_Calls: []
   _isAmmoInfinite: 0
   _startAmmo: 120
   _currentAmmo: 0
   _actionCooldown: 1.5
   _cooldownLeft: 0
   _bulletPrefab: {fileID: 2879964728619219161, guid: c79180b4fa39a5d43997c1ec8d4d65c1, type: 3}
-  _bulletRandomAngleDeviation: 8
-  _numberOfBullets: 3
-  _bulletsAngleSpread: 35
+  _bulletRandomAngleDeviation: 0
+  _numberOfBullets: 1
+  _bulletsAngleSpread: 0
 --- !u!1 &6672023061445637217
 GameObject:
   m_ObjectHideFlags: 0
