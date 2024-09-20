@@ -25,7 +25,7 @@ public class UI_ActionBaseDisplay : MonoBehaviour
         {
             if (AmmoText != null)
             {
-                AmmoText.text = $"AMMO:{actionBase.CurrentAmmo}";
+                AmmoText.text = $"{actionBase.CurrentAmmo}";
             }
 
             if (CooldownSlider != null)
