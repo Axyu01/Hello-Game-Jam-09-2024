@@ -7,30 +7,48 @@ public class UI_ActionBaseDisplay : MonoBehaviour
 {
     public Text AmmoText;
     public Slider CooldownSlider;
-
-    public ActionBase actionBase;
+    public Image CooldownCircle;
 
     private void Start()
     {
+        ActionBase actionBase = GetCurrentPlayerAction();
         if (actionBase != null && CooldownSlider != null)
         {
-            CooldownSlider.maxValue = actionBase._actionCooldown;
+            CooldownCircle.fillAmount = 0f;
         }
     }
 
     private void Update()
     {
+        ActionBase actionBase = GetCurrentPlayerAction();
         if (actionBase != null)
         {
             if (AmmoText != null)
             {
-                AmmoText.text = actionBase.CurrentAmmo.ToString();
+                AmmoText.text = $"AMMO:{actionBase.CurrentAmmo}";
             }
 
             if (CooldownSlider != null)
             {
-                CooldownSlider.value = actionBase._cooldownLeft;
+                CooldownSlider.value = 1f - actionBase.CooldownLeft / actionBase.ActionCooldown;
+            }
+            if(CooldownCircle != null)
+            {
+                CooldownCircle.fillAmount = actionBase.CooldownLeft / actionBase.ActionCooldown;
             }
         }
+    }
+    public ActionBase GetCurrentPlayerAction()
+    {
+        Player currentPlayer;
+        if (WorldSwitcher.IsChillWorldActive)
+        {
+            currentPlayer = GameManager.Instance.ChillWorldPlayer;
+        }
+        else
+        {
+            currentPlayer = GameManager.Instance.FightWorldPlayer;
+        }
+        return currentPlayer.Action;
     }
 }

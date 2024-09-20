@@ -3,7 +3,7 @@ using UnityEngine.UI;
 
 public class Crosshair : MonoBehaviour
 {
-    public RectTransform CrosshairImage;
+    public Image CrosshairImage;
     private Canvas _canvas;
 
     void Start()
@@ -15,6 +15,21 @@ public class Crosshair : MonoBehaviour
     {
         Vector2 mousePosition = Input.mousePosition;
         RectTransformUtility.ScreenPointToLocalPointInRectangle(_canvas.transform as RectTransform, mousePosition, _canvas.worldCamera, out Vector2 localPoint);
-        CrosshairImage.localPosition = localPoint;
+        CrosshairImage.rectTransform.localPosition = localPoint;
+
+        if (WorldSwitcher.IsChillWorldActive)
+        {
+            Cursor.visible = true;
+            CrosshairImage.enabled = false;
+        }
+        else
+        {
+            Cursor.visible = false;
+            CrosshairImage.enabled = true;
+        }
+    }
+    void OnDestroy()
+    {
+        Cursor.visible = true;
     }
 }

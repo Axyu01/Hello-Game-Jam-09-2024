@@ -14,6 +14,9 @@ public class WaveManager : MonoBehaviour
     float _timePerWave;
     public float TimePerWave { get { return _timePerWave; }}
     [SerializeField]
+    float _timeBetweenWaves = 10f;
+    public float TimeBetweenWaves { get { return _timeBetweenWaves; } }
+    [SerializeField]
     float _startHardness;
     [SerializeField]
     float _hardnessMutliplayer;
@@ -24,7 +27,10 @@ public class WaveManager : MonoBehaviour
     float _currentWaveUsedHardness;
     float _timeLeft = 0;
     public float TimeLeft { get { return _timeLeft; } }
-    bool _waveEnded = false;
+    float _timeToStartNextWave = 0;
+    public float TimeToStartNextWave { get { return _timeToStartNextWave; } }
+    bool _waveEnded = true;
+    public bool WaveEnded { get { return _waveEnded; } }
 
     EnemyWithWaveParameters? _nextEnemy = null;
     float _usedWaveHardness;
@@ -39,7 +45,7 @@ public class WaveManager : MonoBehaviour
     }
     public void StartGame()
     {
-        StartNextWave();
+        _timeToStartNextWave = _timeBetweenWaves;
     }
 
     void Update()
@@ -55,8 +61,21 @@ public class WaveManager : MonoBehaviour
             if (_timeLeft < 0)
             {
                 _timeLeft = 0;
-                EndWave();
-                _waveEnded = true;
+                if(EnemyBase.EnemiesOverallCount() == 0)
+                {
+                    EndWave();
+                    _waveEnded = true;
+                }
+            }
+        }
+        else
+        {
+            _timeToStartNextWave -= Time.deltaTime;
+            if (_timeToStartNextWave < 0)
+            {
+                _timeToStartNextWave = 0;
+                StartNextWave();
+                _waveEnded = false;
             }
         }
     }
@@ -146,6 +165,7 @@ public class WaveManager : MonoBehaviour
     }
     void EndWave()
     {
+        _timeToStartNextWave = _timeBetweenWaves;
         Debug.LogWarning($"Wave {_currentWave} ended!");
         GameManager.Instance.Announcer.Announce($"Wave {_currentWave} ended!");
         WaveEndEvent?.Invoke();

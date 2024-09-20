@@ -2,10 +2,13 @@ using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.Events;
 using static UnityEngine.GraphicsBuffer;
 
 public abstract class ActionBase : MonoBehaviour
 {
+    [SerializeField]
+    UnityEvent OnActionEvent = new UnityEvent();
     [Header("Ammo parameters")]
     [SerializeField]
     bool _isAmmoInfinite;
@@ -18,9 +21,11 @@ public abstract class ActionBase : MonoBehaviour
     public int CurrentAmmo { get { return _currentAmmo; } }
     [Header("Cooldown parameters")]
     [SerializeField]
-    public float _actionCooldown = 1f;
+    float _actionCooldown = 1f;
+    public float ActionCooldown { get { return _actionCooldown; } }
     [SerializeField]
-    public float _cooldownLeft = 0f;
+    float _cooldownLeft = 0f;
+    public float CooldownLeft { get { return _cooldownLeft; } }
     public bool OnCooldown { get { return _cooldownLeft > 0f; } }
     public void TakeAction(Vector2 actionCursorPoint, EntityBase _targetedEntity = null)
     {
@@ -31,6 +36,7 @@ public abstract class ActionBase : MonoBehaviour
             _currentAmmo--;
         }
         OnAction(actionCursorPoint, _targetedEntity);
+        OnActionEvent?.Invoke();
         _cooldownLeft = _actionCooldown;
     }
     protected abstract void OnAction(Vector2 actionCursorPoint,EntityBase _targetedEntity = null);

@@ -8,7 +8,7 @@ public class Player : MovingEntityBase
     GameObject _weapon;
     public float MovementSpeed = 10f;
 
-    void Update()
+    void LateUpdate()
     {
         float speedX = Input.GetAxisRaw("Horizontal") * MovementSpeed;
         float speedY = Input.GetAxisRaw("Vertical") * MovementSpeed;
@@ -16,17 +16,14 @@ public class Player : MovingEntityBase
 
         var mouseWorldPosition = MouseWorldPosition();
 
-        if (Input.GetKeyDown(KeyCode.Mouse0))
+        if (Input.GetKey(KeyCode.Mouse0))
         {
             if(_action != null)
                _action.TakeAction(mouseWorldPosition, null);
         }
      
         _point = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-    }
-    private void LateUpdate()
-    {
-        var mouseWorldPosition = MouseWorldPosition();
+
         transform.rotation = Quaternion.LookRotation(Vector3.forward, (Vector3)mouseWorldPosition - transform.position);
     }
     Vector2 MouseWorldPosition()
@@ -45,5 +42,16 @@ public class Player : MovingEntityBase
             Destroy(_weapon);
         _weapon = Instantiate(prefab,transform.position,transform.rotation,transform);
         _action = _weapon.GetComponentInChildren<ActionBase>();
+    }
+    public void FullHeal()
+    {
+        _health = _maxHealth;
+    }
+    public override void DestroyThisEntity()
+    {
+        gameObject.SetActive(false);
+        Rigidbody.isKinematic = true;
+        Rigidbody.velocity = Vector3.zero;
+        GameManager.Instance.EndGame();
     }
 }
