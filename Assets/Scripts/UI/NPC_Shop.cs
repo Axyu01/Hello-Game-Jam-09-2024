@@ -9,7 +9,6 @@ public class NPC_Shop : MonoBehaviour
 {
     [SerializeField]
     GameObject ShopUI;
-
     private bool _isShopActive;
     
 
