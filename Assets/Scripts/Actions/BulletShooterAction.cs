@@ -41,7 +41,7 @@ public class BulletShooterAction : ActionBase
             }
         }
     }
-    protected void Update()
+    protected new void Update()
     {
         base.Update();
     }

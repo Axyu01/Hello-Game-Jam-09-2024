@@ -21,13 +21,23 @@ public class EntityBase : MonoBehaviour
     protected float _maxHealth;
     public float Health { get { return _health; } }
     public float MaxHealth { get { return _maxHealth; } }
-    public void GetDmg(float dmg)
+    bool _isBeingDestroyed = false;
+
+    float _receivedDmgMultiplayer = 1f;
+    float _debuffTimeLeft = 0f;
+    public bool IsDebuffed { get { return _debuffTimeLeft > 0f; } }
+    public virtual void GetDmg(float dmg)
     {
-        _health -= dmg;
-        if (_health <= 0f)
+        if (dmg > 0f && _debuffTimeLeft > 0f)
         {
-            DestroyThisEntity();
+            dmg *= _receivedDmgMultiplayer;
+        }
+        _health -= dmg;
+        if (_health <= 0f && _isBeingDestroyed == false)
+        {
+            _isBeingDestroyed = true;
             _health = 0f;
+            DestroyThisEntity();
         }
         if(_health > _maxHealth)
             _health = _maxHealth;
@@ -43,5 +53,22 @@ public class EntityBase : MonoBehaviour
     public static int EntitiesOverallCount()
     {
         return Entities.Count;
+    }
+    protected void FixedUpdate()
+    {
+        if (_debuffTimeLeft > 0f)
+        {
+            _debuffTimeLeft -= Time.fixedDeltaTime;
+        }
+        if (_debuffTimeLeft <= 0f)
+        {
+            _debuffTimeLeft = 0f;
+            _receivedDmgMultiplayer = 1f;
+        }
+    }
+    public void ApllyReceivedDmgDebuff(float multiplayer, float time)
+    {
+        _debuffTimeLeft = time;
+        _receivedDmgMultiplayer = multiplayer;
     }
 }
