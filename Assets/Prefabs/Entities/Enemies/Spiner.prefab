@@ -330,7 +330,7 @@ MonoBehaviour:
   _action: {fileID: 2880188872966422174}
   _maxHealth: 20
   Rigidbody: {fileID: 4802049028596768483}
-  _movingForce: 5
+  _movingForce: 1.25
   _agent: {fileID: 3870174726754221304}
   _dropedItemPrefab: {fileID: 4487334640164050143, guid: 7167e4e09877c6c479920db356749154, type: 3}
   _peerMinimalDistance: 2
