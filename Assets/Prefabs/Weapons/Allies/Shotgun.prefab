@@ -223,7 +223,7 @@ MonoBehaviour:
   _bulletPrefab: {fileID: 2879964728619219161, guid: 2d9f6581b32e3b74f9151753d31cb801, type: 3}
   _bulletRandomAngleDeviation: 30
   _numberOfBullets: 10
-  _bulletsAngleSpread: 0
+  _bulletsAngleSpread: 30
 --- !u!1 &6672023061445637217
 GameObject:
   m_ObjectHideFlags: 0

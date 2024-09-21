@@ -216,7 +216,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   _isAmmoInfinite: 0
-  _startAmmo: 120
+  _startAmmo: 10
   _currentAmmo: 0
   _actionCooldown: 1.5
   _cooldownLeft: 0
