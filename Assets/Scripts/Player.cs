@@ -7,12 +7,20 @@ public class Player : MovingEntityBase
     [SerializeField]
     GameObject _weapon;
     public float MovementSpeed = 10f;
+    [SerializeField]
+    PlayerAnimation _playerAnimation;
 
     void LateUpdate()
     {
         float speedX = Input.GetAxisRaw("Horizontal") * MovementSpeed;
         float speedY = Input.GetAxisRaw("Vertical") * MovementSpeed;
-        Rigidbody.velocity = new Vector2 (speedX, speedY);
+        Vector2 movement = new Vector2 (speedX, speedY);
+        Rigidbody.velocity = movement;
+
+        if (_playerAnimation != null)
+        {
+            _playerAnimation.UpdateAnimation(-movement);
+        }
 
         var mouseWorldPosition = MouseWorldPosition();
 
