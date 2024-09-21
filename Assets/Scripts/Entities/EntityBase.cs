@@ -25,6 +25,9 @@ public class EntityBase : MonoBehaviour
 
     float _receivedDmgMultiplayer = 1f;
     float _debuffTimeLeft = 0f;
+    public float DebuffTimeLeft { get { return _debuffTimeLeft; } }
+    float _debuffTime = 0f;
+    public float DebuffTime { get { return _debuffTime; } }
     public bool IsDebuffed { get { return _debuffTimeLeft > 0f; } }
     public virtual void GetDmg(float dmg)
     {
@@ -70,5 +73,6 @@ public class EntityBase : MonoBehaviour
     {
         _debuffTimeLeft = time;
         _receivedDmgMultiplayer = multiplayer;
+        _debuffTime = time;
     }
 }
