@@ -18,11 +18,11 @@ public class Brain : MonoBehaviour
     float accurancy = 0.85f;
     void FixedUpdate()
     {
-        Vector2 playerToEntity = (gameObject.transform.position - _controlledEnemy.Target.position);
+        Vector2 playerToEntity = (gameObject.transform.position - _controlledEnemy.Target.transform.position);
         float entityToPlayerDistance = playerToEntity.magnitude;
         if (shootingDistance <= entityToPlayerDistance)
         {
-            _controlledEnemy.MoveTo(_controlledEnemy.Target.position);
+            _controlledEnemy.MoveTo(_controlledEnemy.Target.transform.position);
         }
         else if (runAwayDistance < entityToPlayerDistance && entityToPlayerDistance < shootingDistance)
         {
@@ -32,7 +32,7 @@ public class Brain : MonoBehaviour
         }
         else if (entityToPlayerDistance <= runAwayDistance)
         {
-            _controlledEnemy.MoveTo((Vector2)_controlledEnemy.Target.position + playerToEntity * runAwayPathing);
+            _controlledEnemy.MoveTo((Vector2)_controlledEnemy.Target.transform.position + playerToEntity * runAwayPathing);
         }
     }
 }
