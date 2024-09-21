@@ -7,8 +7,18 @@ using UnityEngine.UI;
 
 public class MainMenu : MonoBehaviour
 {
+
+    public Image FadePanel;
+    public float FadeDuration;
+
+    private void Start()
+    {
+        FadePanel.color = new Color(0, 0, 0, 0);
+    }
+
     public void StartGame()
     {
+
         GameObject backgroundMusic = GameObject.Find("BackgroundMusic");
         if (backgroundMusic != null)
         {
@@ -17,7 +27,8 @@ public class MainMenu : MonoBehaviour
                 Destroy(backgroundMusic);
             }
         }
-        SceneManager.LoadScene("TEST_Sosivo");
+        StartCoroutine(FadeOut());
+        //SceneManager.LoadScene("TEST_Sosivo");
     }
 
     public void Instruction()
@@ -42,6 +53,23 @@ public class MainMenu : MonoBehaviour
     public void BackButton()
     {
         SceneManager.LoadScene("MainMenu");
+    }
+
+
+    public IEnumerator FadeOut()
+    {
+        float elapsedTime = 0f;
+        Color panelColor = FadePanel.color;
+
+        while (elapsedTime < FadeDuration)
+        {
+            elapsedTime += Time.deltaTime;
+            float alpha = Mathf.Clamp01(elapsedTime / FadeDuration);
+            FadePanel.color = new Color(panelColor.r, panelColor.g, panelColor.b, alpha);
+            yield return null;
+        }
+
+        SceneManager.LoadScene("TEST_Sosivo");
     }
 
 }
