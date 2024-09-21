@@ -884,7 +884,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   uiText: {fileID: 446483846270869449}
-  AnimationDuration: 0.4
+  AnimationDuration: 0.1
   enlargedFontSize: 100
 --- !u!1 &4852837213469362077
 GameObject:
@@ -993,7 +993,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   uiText: {fileID: 1179821447366159445}
-  AnimationDuration: 0.2
+  AnimationDuration: 0.1
   enlargedFontSize: 100
 --- !u!1 &5269053026818681725
 GameObject:
