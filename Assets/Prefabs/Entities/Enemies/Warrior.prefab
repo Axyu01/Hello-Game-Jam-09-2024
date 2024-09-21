@@ -330,7 +330,7 @@ MonoBehaviour:
   _action: {fileID: 39404898864298268}
   _maxHealth: 50
   Rigidbody: {fileID: 4802049028596768483}
-  _movingForce: 5
+  _movingForce: 30
   _agent: {fileID: 3870174726754221304}
   _dropedItemPrefab: {fileID: 4487334640164050143, guid: 7167e4e09877c6c479920db356749154, type: 3}
   _peerMinimalDistance: 0.5
@@ -363,7 +363,7 @@ Rigidbody2D:
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
-  m_Mass: 1
+  m_Mass: 10
   m_LinearDrag: 0
   m_AngularDrag: 0.05
   m_GravityScale: 0
