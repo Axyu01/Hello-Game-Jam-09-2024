@@ -327,7 +327,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 40d96c07cbb5c8746926bac2a03a6ad5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _action: {fileID: 0}
+  _action: {fileID: 2880188872966422174}
   _maxHealth: 20
   Rigidbody: {fileID: 4802049028596768483}
   _movingForce: 5
@@ -491,6 +491,17 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 211981763916222906, guid: 8f8e7c311840c3f499d84a6c7eeb0283, type: 3}
   m_PrefabInstance: {fileID: 757237435042256108}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &2880188872966422174 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 3277006352330812018, guid: 8f8e7c311840c3f499d84a6c7eeb0283, type: 3}
+  m_PrefabInstance: {fileID: 757237435042256108}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5ddf8b3d5805342468ea24a1648560d5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &5681166860709264729
 PrefabInstance:
   m_ObjectHideFlags: 0
