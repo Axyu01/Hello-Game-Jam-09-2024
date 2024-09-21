@@ -8,10 +8,6 @@ public class UI_ActionBaseDisplay : MonoBehaviour
     public Text AmmoText;
     public Slider CooldownSlider;
     public Image CooldownCircle;
-    [Header("No Ammo")]
-    public Text NoAmmoText;
-    public float DisplayTime;
-    private bool isShowingNoAmmo = false;
 
     private void Start()
     {
@@ -29,7 +25,7 @@ public class UI_ActionBaseDisplay : MonoBehaviour
         {
             if (AmmoText != null)
             {
-                AmmoText.text = $"{actionBase.CurrentAmmo}";
+                AmmoText.text = $"AMMO:{actionBase.CurrentAmmo}";
             }
 
             if (CooldownSlider != null)
@@ -41,8 +37,10 @@ public class UI_ActionBaseDisplay : MonoBehaviour
                 CooldownCircle.fillAmount = actionBase.CooldownLeft / actionBase.ActionCooldown;
             }
         }
+<<<<<<< Updated upstream
+=======
 
-        if(actionBase.CurrentAmmo == 0 && Input.GetKey(KeyCode.Mouse0) && CooldownCircle.fillAmount == 0f)
+        if(actionBase != null && actionBase.CurrentAmmo == 0 && Input.GetKey(KeyCode.Mouse0) && CooldownCircle.fillAmount == 0f)
         {
             Debug.Log("No ammo");
             if (!isShowingNoAmmo)
@@ -50,6 +48,7 @@ public class UI_ActionBaseDisplay : MonoBehaviour
                 StartCoroutine(ShowNoAmmoText());
             }
         }
+>>>>>>> Stashed changes
     }
     public ActionBase GetCurrentPlayerAction()
     {
@@ -63,14 +62,5 @@ public class UI_ActionBaseDisplay : MonoBehaviour
             currentPlayer = GameManager.Instance.FightWorldPlayer;
         }
         return currentPlayer.Action;
-    }
-
-    private IEnumerator ShowNoAmmoText()
-    {
-        isShowingNoAmmo = true;
-        NoAmmoText.enabled = true;
-        yield return new WaitForSeconds(DisplayTime);
-        NoAmmoText.enabled=false;
-        isShowingNoAmmo= false;
     }
 }

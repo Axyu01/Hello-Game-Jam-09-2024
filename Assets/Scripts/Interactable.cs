@@ -10,9 +10,12 @@ public class Interactable : MonoBehaviour
     KeyCode _interactKey;
     public UnityEvent InteractAction;
 
+<<<<<<< Updated upstream
+=======
     [SerializeField]
-    Animator shopAnimator;
+    ShopAnimator shopAnimator;
 
+>>>>>>> Stashed changes
     void Update()
     {
         if (IsInRange) 
@@ -20,7 +23,6 @@ public class Interactable : MonoBehaviour
             if (Input.GetKeyDown(_interactKey))
             {
                 InteractAction.Invoke();
-                ToggleShopView();
             }
         }
     }
@@ -36,19 +38,15 @@ public class Interactable : MonoBehaviour
 
     private void OnTriggerExit2D(Collider2D collision)
     {
+<<<<<<< Updated upstream
         IsInRange = false;
         Debug.Log("out of range");
-    }
-
-    public void ToggleShopView()
-    {
-        if (IsInRange)
+=======
+        if (collision.gameObject.CompareTag("Player"))
         {
-            shopAnimator.Play("ShopIN");
+            IsInRange = false;
+            Debug.Log("out of range");
         }
-        else
-        {
-            shopAnimator.Play("ShopOUT");
-        }
+>>>>>>> Stashed changes
     }
 }
