@@ -37,18 +37,16 @@ public class UI_ActionBaseDisplay : MonoBehaviour
                 CooldownCircle.fillAmount = actionBase.CooldownLeft / actionBase.ActionCooldown;
             }
         }
-<<<<<<< Updated upstream
-=======
-
         if(actionBase != null && actionBase.CurrentAmmo == 0 && Input.GetKey(KeyCode.Mouse0) && CooldownCircle.fillAmount == 0f)
         {
             Debug.Log("No ammo");
-            if (!isShowingNoAmmo)
+           /* if (!isShowingNoAmmo)
             {
                 StartCoroutine(ShowNoAmmoText());
             }
+           */
         }
->>>>>>> Stashed changes
+
     }
     public ActionBase GetCurrentPlayerAction()
     {

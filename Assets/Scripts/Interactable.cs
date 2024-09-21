@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using UnityEditor.VersionControl;
 using UnityEngine;
 using UnityEngine.Events;
 
@@ -10,12 +11,9 @@ public class Interactable : MonoBehaviour
     KeyCode _interactKey;
     public UnityEvent InteractAction;
 
-<<<<<<< Updated upstream
-=======
     [SerializeField]
     ShopAnimator shopAnimator;
 
->>>>>>> Stashed changes
     void Update()
     {
         if (IsInRange) 
@@ -38,15 +36,10 @@ public class Interactable : MonoBehaviour
 
     private void OnTriggerExit2D(Collider2D collision)
     {
-<<<<<<< Updated upstream
-        IsInRange = false;
-        Debug.Log("out of range");
-=======
         if (collision.gameObject.CompareTag("Player"))
         {
             IsInRange = false;
             Debug.Log("out of range");
         }
->>>>>>> Stashed changes
     }
 }

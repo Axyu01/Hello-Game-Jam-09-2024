@@ -68,7 +68,8 @@ public class EnemyBase : MovingEntityBase
     }
     public void MoveTo(Vector2 position)
     {
-        _agent.SetDestination(position);
+        if(_agent.isOnNavMesh)
+            _agent.SetDestination(position);
     }
     public override void DestroyThisEntity()
     {
