@@ -49,9 +49,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _switchKey: 32
-  _chillWorld: {fileID: 0}
-  _actionWorld: {fileID: 0}
-  _isChillWorldActive: 1
 --- !u!58 &2734164563881931553
 CircleCollider2D:
   m_ObjectHideFlags: 0
