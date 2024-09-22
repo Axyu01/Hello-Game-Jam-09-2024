@@ -323,7 +323,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _restoredHealth: 20
   _cost: 50
-  _description: {fileID: 0}
+  _description: {fileID: 8321202455345157121}
 --- !u!1 &6518295675000835738
 GameObject:
   m_ObjectHideFlags: 0
