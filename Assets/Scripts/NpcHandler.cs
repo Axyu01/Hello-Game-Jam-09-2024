@@ -15,8 +15,4 @@ public class NpcHandler : MonoBehaviour
     {
         ShopAnimator.OpenShop();
     }
-    private void OnDisable()
-    {
-        ShopAnimator.CloseShop();
-    }
 }

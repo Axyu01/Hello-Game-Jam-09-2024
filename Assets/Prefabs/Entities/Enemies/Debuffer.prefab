@@ -16,34 +16,6 @@ PrefabInstance:
       propertyPath: _numberOfBullets
       value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 4582424193543343186, guid: 8ca58d96aa42a4343a8418f0b4f0a50c, type: 3}
-      propertyPath: OnActionEvent.m_PersistentCalls.m_Calls.Array.size
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4582424193543343186, guid: 8ca58d96aa42a4343a8418f0b4f0a50c, type: 3}
-      propertyPath: OnActionEvent.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4582424193543343186, guid: 8ca58d96aa42a4343a8418f0b4f0a50c, type: 3}
-      propertyPath: OnActionEvent.m_PersistentCalls.m_Calls.Array.data[0].m_Target
-      value: 
-      objectReference: {fileID: 1977773735030849471}
-    - target: {fileID: 4582424193543343186, guid: 8ca58d96aa42a4343a8418f0b4f0a50c, type: 3}
-      propertyPath: OnActionEvent.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 4582424193543343186, guid: 8ca58d96aa42a4343a8418f0b4f0a50c, type: 3}
-      propertyPath: OnActionEvent.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: Play
-      objectReference: {fileID: 0}
-    - target: {fileID: 4582424193543343186, guid: 8ca58d96aa42a4343a8418f0b4f0a50c, type: 3}
-      propertyPath: OnActionEvent.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
-      value: UnityEngine.AudioSource, UnityEngine
-      objectReference: {fileID: 0}
-    - target: {fileID: 4582424193543343186, guid: 8ca58d96aa42a4343a8418f0b4f0a50c, type: 3}
-      propertyPath: OnActionEvent.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
-      value: UnityEngine.Object, UnityEngine
-      objectReference: {fileID: 0}
     - target: {fileID: 5634487404254054280, guid: 8ca58d96aa42a4343a8418f0b4f0a50c, type: 3}
       propertyPath: runAwayPathing
       value: 5.1
@@ -76,10 +48,6 @@ PrefabInstance:
       propertyPath: _dropedItemPrefab
       value: 
       objectReference: {fileID: 4487334640164050143, guid: 9fbfeae2b6b39df4fb0990634153c50d, type: 3}
-    - target: {fileID: 7080548374007852313, guid: 8ca58d96aa42a4343a8418f0b4f0a50c, type: 3}
-      propertyPath: m_audioClip
-      value: 
-      objectReference: {fileID: 8300000, guid: 1b99542a0c25ada438db0b2c0e99b2d1, type: 3}
     - target: {fileID: 8854405355628657587, guid: 8ca58d96aa42a4343a8418f0b4f0a50c, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -129,8 +97,3 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8ca58d96aa42a4343a8418f0b4f0a50c, type: 3}
---- !u!82 &1977773735030849471 stripped
-AudioSource:
-  m_CorrespondingSourceObject: {fileID: 7080548374007852313, guid: 8ca58d96aa42a4343a8418f0b4f0a50c, type: 3}
-  m_PrefabInstance: {fileID: 8732866159787463334}
-  m_PrefabAsset: {fileID: 0}

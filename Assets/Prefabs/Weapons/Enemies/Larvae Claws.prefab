@@ -92,10 +92,6 @@ PrefabInstance:
       propertyPath: m_LocalPosition.x
       value: 0.5
       objectReference: {fileID: 0}
-    - target: {fileID: 6859455157110911889, guid: 40eedbb82c3ef2142809b287264a333f, type: 3}
-      propertyPath: m_audioClip
-      value: 
-      objectReference: {fileID: 8300000, guid: fa41cf1b3fbb05b4a9ca2d0c2f9dde74, type: 3}
     - target: {fileID: 7448189622277948698, guid: 40eedbb82c3ef2142809b287264a333f, type: 3}
       propertyPath: m_Name
       value: Larvae Claws
