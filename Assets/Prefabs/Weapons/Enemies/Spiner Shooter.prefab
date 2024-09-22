@@ -84,6 +84,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6859455157110911889, guid: 40eedbb82c3ef2142809b287264a333f, type: 3}
+      propertyPath: m_audioClip
+      value: 
+      objectReference: {fileID: 8300000, guid: 1c99245ce8b44ff40b80f2e8168c2e8e, type: 3}
     - target: {fileID: 7448189622277948698, guid: 40eedbb82c3ef2142809b287264a333f, type: 3}
       propertyPath: m_Name
       value: Spiner Shooter
