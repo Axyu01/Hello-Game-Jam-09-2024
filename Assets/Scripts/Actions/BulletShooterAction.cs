@@ -28,7 +28,7 @@ public class BulletShooterAction : ActionBase
     }
     void ShootBullet(GameObject prefab,Vector2 direction,EntityBase _targetedEntity = null)
     {
-        var bullet = Instantiate(_bulletPrefab, transform.position, Quaternion.identity);
+        var bullet = Instantiate(_bulletPrefab, transform.position, Quaternion.identity,GameManager.Instance.FightWorld.transform);
         if (bullet.TryGetComponent(out BulletBase bulletScript))
         {
             if (_targetedEntity != null)
@@ -41,7 +41,7 @@ public class BulletShooterAction : ActionBase
             }
         }
     }
-    protected void Update()
+    protected new void Update()
     {
         base.Update();
     }

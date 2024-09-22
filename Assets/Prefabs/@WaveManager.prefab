@@ -25,7 +25,7 @@ Transform:
   m_GameObject: {fileID: 2171203137059626302}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 11.44, y: 6.22, z: 0}
+  m_LocalPosition: {x: 1.38, y: -9.88, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -56,7 +56,7 @@ Transform:
   m_GameObject: {fileID: 2789260895958313889}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 1.32, y: 7.75, z: 0}
+  m_LocalPosition: {x: 1.32, y: 9.98, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -87,7 +87,7 @@ Transform:
   m_GameObject: {fileID: 2919271967955736177}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 13.76, y: -0.61, z: 0}
+  m_LocalPosition: {x: 12.83, y: -0.51, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -118,7 +118,7 @@ Transform:
   m_GameObject: {fileID: 5066414321609715741}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 7.49, y: 7.08, z: 0}
+  m_LocalPosition: {x: -10.53, y: 0.06, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -210,18 +210,31 @@ MonoBehaviour:
   WaveStartEvent:
     m_PersistentCalls:
       m_Calls: []
-  _timePerWave: 5
-  _startHardness: 10
+  _timePerWave: 20
+  _timeBetweenWaves: 10
+  _startHardness: 7
   _hardnessMutliplayer: 1.1
-  _hardnessAddition: 10
+  _hardnessAddition: 3
   _enemiesWithParameters:
-  - EnemyPrefab: {fileID: 9145297217049659980, guid: 8ca58d96aa42a4343a8418f0b4f0a50c, type: 3}
-    HardnessScore: 2
+  - EnemyPrefab: {fileID: 5375781427197839195, guid: f18ed8b539e332b48b8be58157d4449c, type: 3}
+    HardnessScore: 5
+    WaveAppearance: 1
+    ProbabilityScore: 3
+  - EnemyPrefab: {fileID: 4594292057660892564, guid: 030ed117bdcd01f4db23cc9d8493e5c3, type: 3}
+    HardnessScore: 3
     WaveAppearance: 1
     ProbabilityScore: 2
-  - EnemyPrefab: {fileID: 9145297217049659980, guid: 4de0e5051cd5ff246a1a184dca1e18ea, type: 3}
+  - EnemyPrefab: {fileID: 9145297217049659980, guid: 0946c16ef6652af4a8b5260d40218107, type: 3}
     HardnessScore: 2
-    WaveAppearance: 1
+    WaveAppearance: 3
+    ProbabilityScore: 2
+  - EnemyPrefab: {fileID: 9145297217049659980, guid: e1526261ade86cb47b99c91a8364585c, type: 3}
+    HardnessScore: 5
+    WaveAppearance: 6
+    ProbabilityScore: 1
+  - EnemyPrefab: {fileID: 566258236248053994, guid: 612e5402f8ae0b0469e8daa0c6b70971, type: 3}
+    HardnessScore: 4
+    WaveAppearance: 5
     ProbabilityScore: 1
   _spawns:
   - {fileID: 1795708350867639725}

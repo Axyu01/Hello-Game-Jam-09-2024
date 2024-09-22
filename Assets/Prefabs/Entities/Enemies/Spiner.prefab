@@ -332,7 +332,7 @@ MonoBehaviour:
   Rigidbody: {fileID: 4802049028596768483}
   _movingForce: 1.25
   _agent: {fileID: 3870174726754221304}
-  _dropedItemPrefab: {fileID: 4487334640164050143, guid: 7167e4e09877c6c479920db356749154, type: 3}
+  _dropedItemPrefab: {fileID: 4487334640164050143, guid: 9d22bd3164ae8af498c7821daf3a6fd4, type: 3}
   _peerMinimalDistance: 2
 --- !u!114 &5634487404254054280
 MonoBehaviour:

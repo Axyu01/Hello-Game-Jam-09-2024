@@ -6,12 +6,6 @@ public class WorldSwitcher : MonoBehaviour
 {
     [SerializeField]
     KeyCode _switchKey = KeyCode.Space;
-    [SerializeField]
-    GameObject _chillWorld;
-    static GameObject _chillWorldGlobal;
-    [SerializeField]
-    GameObject _actionWorld;
-    static GameObject _actionWorldGlobal;
 
     static bool _isChillWorldActive = false;
     public static bool IsChillWorldActive { get { return _isChillWorldActive; } }
@@ -36,13 +30,13 @@ public class WorldSwitcher : MonoBehaviour
     {
         if(_isChillWorldActive)
         {
-            _chillWorld.SetActive(true);
-            _actionWorld.SetActive(false);
+            GameManager.Instance.ChillWorld.SetActive(true);
+            GameManager.Instance.FightWorld.SetActive(false);
         }
         else
         {
-            _chillWorld.SetActive(false);
-            _actionWorld.SetActive(true);
+            GameManager.Instance.ChillWorld.SetActive(false);
+            GameManager.Instance.FightWorld.SetActive(true);
         }
     }
     private void OnTriggerEnter2D(Collider2D other)

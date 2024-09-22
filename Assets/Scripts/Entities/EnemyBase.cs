@@ -8,8 +8,8 @@ using UnityEngine.SceneManagement;
 public class EnemyBase : MovingEntityBase
 {
     protected static List<EnemyBase> Enemies = new List<EnemyBase>();
-    protected Transform _target;
-    public Transform Target { get { return _target; } }
+    protected EntityBase _target;
+    public EntityBase Target { get { return _target; } }
     [SerializeField] float _movingForce = 5f;
     [SerializeField] NavMeshAgent _agent;
     [SerializeField] GameObject _dropedItemPrefab;
@@ -26,7 +26,7 @@ public class EnemyBase : MovingEntityBase
     {
         base.Start();
         StartCoroutine(FindNearbyPeers());
-        _target = GameManager.Instance.FightWorldPlayer.transform;
+        _target = GameManager.Instance.FightWorldPlayer;
         _health = _maxHealth;
         if (_agent == null)
         {
@@ -41,8 +41,9 @@ public class EnemyBase : MovingEntityBase
         _agent.updatePosition = false;
     }
     // Update is called once per frame
-    void FixedUpdate()
+    new void FixedUpdate()
     {
+        base.FixedUpdate();
         Vector2 socialDistancing = CalculateSocialDistancing();
         if (_agent.path.corners.Length > 0)
         {
@@ -63,11 +64,12 @@ public class EnemyBase : MovingEntityBase
         {
             return;
         }
-        _action.TakeAction(_target.position);
+        _action.TakeAction(_target.transform.position,_target);
     }
     public void MoveTo(Vector2 position)
     {
-        _agent.SetDestination(position);
+        if(_agent.isOnNavMesh)
+            _agent.SetDestination(position);
     }
     public override void DestroyThisEntity()
     {

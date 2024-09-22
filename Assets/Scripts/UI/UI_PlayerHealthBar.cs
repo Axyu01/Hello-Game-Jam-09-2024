@@ -10,7 +10,7 @@ public class UI_PlayerHealthBar : MonoBehaviour
     //public Slider HealthSlider;
     public void Update()
     {
-        HealthText.text = $"HEALTH:{GameManager.Instance.FightWorldPlayer.Health}";
+        HealthText.text = $"{GameManager.Instance.FightWorldPlayer.Health}";
     }
     /*void Start()
     {

@@ -5,8 +5,7 @@ using UnityEngine;
 public class NpcHandler : MonoBehaviour
 {
     [SerializeField]
-    GameObject ShopUi;
-    private bool _isShopActive;
+    ShopAnimator ShopAnimator;
     public void Interaction()
     {
         Debug.Log("witam");
@@ -14,9 +13,10 @@ public class NpcHandler : MonoBehaviour
 
     public void Shop()
     {
-        if (_isShopActive == false)
-        {
-            ShopUi.SetActive(true);
-        }
+        ShopAnimator.OpenShop();
+    }
+    private void OnDisable()
+    {
+        ShopAnimator.CloseShop();
     }
 }

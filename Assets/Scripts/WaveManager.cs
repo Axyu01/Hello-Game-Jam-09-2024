@@ -81,7 +81,10 @@ public class WaveManager : MonoBehaviour
     }
     void UpdateWaveCycleLogic()
     {
-        SpawnNextEnemies();
+        if (_waveEnded == false)
+        {
+            SpawnNextEnemies();
+        }
     }
     void SpawnNextEnemies()
     {
@@ -91,10 +94,19 @@ public class WaveManager : MonoBehaviour
             float availableHardnessPoints = _currentWaveHardness * (_timePerWave - _timeLeft) / _timePerWave - _currentWaveUsedHardness + SMALL_NUMBER;
             float potentialHardnessPointLeft = _currentWaveHardness - _currentWaveUsedHardness + SMALL_NUMBER;
 
-            if (_nextEnemy != null && availableHardnessPoints > ((EnemyWithWaveParameters)_nextEnemy).HardnessScore)
+            if (_nextEnemy != null)
             {
-                EnemyWithWaveParameters enemy = (EnemyWithWaveParameters)_nextEnemy;
-                SpawnEnemyOnRandomSpawn(enemy);
+                if (availableHardnessPoints > ((EnemyWithWaveParameters)_nextEnemy).HardnessScore)
+                {
+                    EnemyWithWaveParameters enemy = (EnemyWithWaveParameters)_nextEnemy;
+                    SpawnEnemyOnRandomSpawn(enemy);
+                    continue;
+                }
+                else
+                {
+                    continueSpawning = false;
+                    continue;
+                }
             }
 
             List <EnemyWithWaveParameters> availabeEnemiesToSpawn = new List<EnemyWithWaveParameters>();

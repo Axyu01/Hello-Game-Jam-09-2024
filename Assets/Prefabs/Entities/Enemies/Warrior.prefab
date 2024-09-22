@@ -332,7 +332,7 @@ MonoBehaviour:
   Rigidbody: {fileID: 4802049028596768483}
   _movingForce: 30
   _agent: {fileID: 3870174726754221304}
-  _dropedItemPrefab: {fileID: 4487334640164050143, guid: 7167e4e09877c6c479920db356749154, type: 3}
+  _dropedItemPrefab: {fileID: 4487334640164050143, guid: 5e1b0e398086dc44d954404cf7cdcbae, type: 3}
   _peerMinimalDistance: 0.5
 --- !u!114 &5634487404254054280
 MonoBehaviour:
@@ -460,6 +460,10 @@ PrefabInstance:
     - target: {fileID: 211981763916222906, guid: c129e8b0022cda64eb4ace921f1f6599, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2185879962185410768, guid: c129e8b0022cda64eb4ace921f1f6599, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.494
       objectReference: {fileID: 0}
     - target: {fileID: 3277006352330812018, guid: c129e8b0022cda64eb4ace921f1f6599, type: 3}
       propertyPath: _actionCooldown
