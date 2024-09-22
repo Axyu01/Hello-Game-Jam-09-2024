@@ -212,26 +212,30 @@ MonoBehaviour:
       m_Calls: []
   _timePerWave: 20
   _timeBetweenWaves: 10
-  _startHardness: 10
+  _startHardness: 7
   _hardnessMutliplayer: 1.1
-  _hardnessAddition: 5
+  _hardnessAddition: 3
   _enemiesWithParameters:
   - EnemyPrefab: {fileID: 5375781427197839195, guid: f18ed8b539e332b48b8be58157d4449c, type: 3}
     HardnessScore: 5
     WaveAppearance: 1
-    ProbabilityScore: 7
-  - EnemyPrefab: {fileID: 9145297217049659980, guid: 0946c16ef6652af4a8b5260d40218107, type: 3}
+    ProbabilityScore: 3
+  - EnemyPrefab: {fileID: 4594292057660892564, guid: 030ed117bdcd01f4db23cc9d8493e5c3, type: 3}
     HardnessScore: 3
+    WaveAppearance: 1
+    ProbabilityScore: 2
+  - EnemyPrefab: {fileID: 9145297217049659980, guid: 0946c16ef6652af4a8b5260d40218107, type: 3}
+    HardnessScore: 2
     WaveAppearance: 3
     ProbabilityScore: 2
   - EnemyPrefab: {fileID: 9145297217049659980, guid: e1526261ade86cb47b99c91a8364585c, type: 3}
     HardnessScore: 5
     WaveAppearance: 6
     ProbabilityScore: 1
-  - EnemyPrefab: {fileID: 9145297217049659980, guid: 2689b4e020399454c88a4768fe00b731, type: 3}
-    HardnessScore: 1
-    WaveAppearance: 1
-    ProbabilityScore: 0
+  - EnemyPrefab: {fileID: 566258236248053994, guid: 612e5402f8ae0b0469e8daa0c6b70971, type: 3}
+    HardnessScore: 4
+    WaveAppearance: 5
+    ProbabilityScore: 1
   _spawns:
   - {fileID: 1795708350867639725}
   - {fileID: 717856478560379999}
