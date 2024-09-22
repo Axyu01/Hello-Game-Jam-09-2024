@@ -15,7 +15,7 @@ public class Shop_HP : MonoBehaviour
 
     void Start()
     {
-        _description.text = $"Heal {_restoredHealth}\nCost:{_cost}";
+        _description.text = $"Heal for {_restoredHealth}hp\nCost:{_cost}";
        
     }
 
