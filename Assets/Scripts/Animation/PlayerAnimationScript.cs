@@ -14,14 +14,25 @@ public class PlayerAnimation : MonoBehaviour
 
     public void UpdateAnimation(Vector2 movement)
     {
-        if (movement != Vector2.zero)
+        _animator.SetFloat("Speed", movement.y);
+
+        if (movement.y == 0)
         {
-            _animator.SetFloat("Speed", movement.y);
-            
+            _animator.SetFloat("Speed", Mathf.Abs(movement.x));
             if (movement.x != 0)
             {
-                bool direction = movement.x > 0 ? false : true;
-                _animator.SetBool("Direction", direction);
+                transform.localScale = new Vector3(movement.x < 0 ? 0.75f : -0.75f, 0.75f, 1);
+            }
+        }
+        else
+        {
+            if (movement.x > 0)
+            {
+                transform.localScale = new Vector3(!(movement.y < 0) ? -0.75f : 0.75f, 0.75f, 1);
+            }
+            else if (movement.x < 0)
+            {
+                transform.localScale = new Vector3(!(movement.y > 0) ? -0.75f : 0.75f, 0.75f, 1);
             }
         }
     }
