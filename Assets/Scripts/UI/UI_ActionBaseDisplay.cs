@@ -25,16 +25,25 @@ public class UI_ActionBaseDisplay : MonoBehaviour
         {
             if (AmmoText != null)
             {
-                AmmoText.text = $"{actionBase.CurrentAmmo}";
+                if (actionBase.HasStartedBeing)
+                    AmmoText.text = $"{actionBase.CurrentAmmo}";
+                else
+                    AmmoText.text = $"{actionBase.StartAmmo}";
             }
 
             if (CooldownSlider != null)
             {
-                CooldownSlider.value = 1f - actionBase.CooldownLeft / actionBase.ActionCooldown;
+                if (actionBase.HasStartedBeing)
+                    CooldownSlider.value = 1f - actionBase.CooldownLeft / actionBase.ActionCooldown;
+                else
+                    CooldownSlider.value = 0f;
             }
             if(CooldownCircle != null)
             {
-                CooldownCircle.fillAmount = actionBase.CooldownLeft / actionBase.ActionCooldown;
+                if (actionBase.HasStartedBeing)
+                    CooldownCircle.fillAmount = actionBase.CooldownLeft / actionBase.ActionCooldown;
+                else
+                    CooldownCircle.fillAmount = 0f;
             }
         }
         if(actionBase != null && actionBase.CurrentAmmo == 0 && Input.GetKey(KeyCode.Mouse0) && CooldownCircle.fillAmount == 0f)
@@ -51,6 +60,7 @@ public class UI_ActionBaseDisplay : MonoBehaviour
     public ActionBase GetCurrentPlayerAction()
     {
         Player currentPlayer;
+        /*
         if (WorldSwitcher.IsChillWorldActive)
         {
             currentPlayer = GameManager.Instance.ChillWorldPlayer;
@@ -59,6 +69,8 @@ public class UI_ActionBaseDisplay : MonoBehaviour
         {
             currentPlayer = GameManager.Instance.FightWorldPlayer;
         }
+        */
+        currentPlayer = GameManager.Instance.FightWorldPlayer;
         return currentPlayer.Action;
     }
 }

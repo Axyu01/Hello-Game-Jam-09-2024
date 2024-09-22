@@ -14,7 +14,7 @@ public class EndScreenViewer : MonoBehaviour
     Button _exitButton;
     void Start()
     {
-        GameManager.Instance.OnGameEnd.AddListener(() => { _endScreen.SetActive(true); });
+        GameManager.Instance.OnGameEnd.AddListener(() => { Cursor.visible = true; _endScreen.SetActive(true); });
         _replayButton.onClick.AddListener(() => { SceneManager.LoadScene(gameObject.scene.name); });
         _exitButton.onClick.AddListener(() => { SceneManager.LoadScene(0); });
     }

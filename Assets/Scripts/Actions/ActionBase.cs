@@ -27,6 +27,8 @@ public abstract class ActionBase : MonoBehaviour
     float _cooldownLeft = 0f;
     public float CooldownLeft { get { return _cooldownLeft; } }
     public bool OnCooldown { get { return _cooldownLeft > 0f; } }
+    bool _hasStartedBeing = false;
+    public bool HasStartedBeing { get { return _hasStartedBeing; } }
     public void TakeAction(Vector2 actionCursorPoint, EntityBase _targetedEntity = null)
     {
         if (OnCooldown || (_currentAmmo <= 0 && IsAmmoInfinite == false))
@@ -42,6 +44,7 @@ public abstract class ActionBase : MonoBehaviour
     protected abstract void OnAction(Vector2 actionCursorPoint,EntityBase _targetedEntity = null);
     protected void Start()
     {
+        _hasStartedBeing = true;
         _currentAmmo = _startAmmo;
     }
     protected void Update()

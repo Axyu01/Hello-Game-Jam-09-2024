@@ -50,6 +50,10 @@ public class WaveManager : MonoBehaviour
 
     void Update()
     {
+        if (_waveEnded == true && Input.GetKeyDown(KeyCode.N))
+        {
+            StartNextWave();
+        }
         UpdateWaveCycleLogic();
         UpdateWaveManagementLogic();
     }

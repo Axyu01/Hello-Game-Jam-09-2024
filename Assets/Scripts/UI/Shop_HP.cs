@@ -15,13 +15,8 @@ public class Shop_HP : MonoBehaviour
 
     void Start()
     {
-        _description.text = $"Heal for {_restoredHealth}hp\nCost:{_cost}";
-       
+        _description.text = $"Heal for {_restoredHealth}hp\nCost:{_cost}";  
     }
-
-
-
-
     public void AddHP()
     {
         if (GameManager.Instance.Coins >= _cost)
@@ -34,8 +29,6 @@ public class Shop_HP : MonoBehaviour
         {
             GameManager.Instance.Announcer.Announce($"Can't heal, no money!");
             return;
-        }
-
-        
+        }    
     }
 }
