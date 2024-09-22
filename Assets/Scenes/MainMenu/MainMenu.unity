@@ -2754,8 +2754,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 466.32004, y: -1998.4066}
-  m_SizeDelta: {x: 355, y: 324.9}
+  m_AnchoredPosition: {x: 483.22824, y: -2040.6766}
+  m_SizeDelta: {x: 467.7208, y: 409.4401}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1270965439
 MonoBehaviour:
@@ -2805,7 +2805,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Some obstacles can be moved to block enemies(preferably in chill world).
+  m_Text: Some obstacles can be moved to block enemies (preferably in chill world).
     Obstacles exist in both worlds!
 --- !u!222 &1270965441
 CanvasRenderer:
