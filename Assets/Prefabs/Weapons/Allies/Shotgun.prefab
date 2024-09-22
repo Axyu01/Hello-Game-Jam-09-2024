@@ -231,7 +231,7 @@ MonoBehaviour:
   _isAmmoInfinite: 0
   _startAmmo: 15
   _currentAmmo: 0
-  _actionCooldown: 1.2
+  _actionCooldown: 1
   _cooldownLeft: 0
   _bulletPrefab: {fileID: 2879964728619219161, guid: 2d9f6581b32e3b74f9151753d31cb801, type: 3}
   _bulletRandomAngleDeviation: 30
