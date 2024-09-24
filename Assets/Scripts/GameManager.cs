@@ -34,6 +34,13 @@ public class GameManager : MonoSingleton<GameManager>
     {
         OnGameEnd?.Invoke();
     }
+    void Update()
+    {
+        if(Input.GetKeyDown(KeyCode.B))
+        {
+            Coins += 10;
+        }
+    }
     protected override void Awake()
     {
         if (_instance == null)
